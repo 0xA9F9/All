@@ -81,7 +81,6 @@ animeItem.appendChild(playItDiv);
         paginationElement.innerHTML = '';
 
         const prevButton = document.createElement('button');
-        prevButton.textContent = '❮';
         prevButton.classList.add('prev');
         if (currentPage > 1) {
             prevButton.addEventListener('click', () => {
@@ -97,7 +96,6 @@ animeItem.appendChild(playItDiv);
         }
 
         const nextButton = document.createElement('button');
-        nextButton.textContent = '❯';
         nextButton.classList.add('next');
         nextButton.addEventListener('click', () => {
             currentPage++;
