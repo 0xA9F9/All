@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+ <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Найди свое аниме для просмотра!">
+    <meta name="keywords" content="anime, аниме, аниме просмотр, watch anime ">
+    <meta name="author" content="Pirate">
+    <link rel="icon" type="image/x-icon" href="favicon.svg">
+    <link rel="stylesheet" href="styles.css">
+    <script src="anime.js"></script>
+   <title>Поиск аниме для просмотра</title>
+</head>
+<body>
+<input type="text" id="search" class="search" placeholder="Название аниме">
+<main class="all">
+<ul id="anime-list" class="anime-list"></ul>
+<div id="pagination" class="pagination"></div>
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">×</span>
+        <iframe id="player" src="" frameborder="0"></iframe>
+    </div>
+</div>
+</main>
+</body>
+</html>
