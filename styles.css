@@ -1,3 +1,5 @@
+@import url("https://raw.githubusercontent.com/No-name-000/shikimori/main/icons/css/fuji-embedded.css");
+
 * {
   box-sizing: border-box;
 }
@@ -113,7 +115,6 @@ body {
 
 .play-it:after {
   content: "";
-  position: absolute;
   background: rgb(255 255 255 / 80%);
   position: absolute;
   left: 0;
@@ -127,24 +128,25 @@ body {
 }
 
 .play-it:before {
-  z-index: 1;
-  content: "▶";
-  background: white;
-  padding: 5px;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 22px;
-  height: 22px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  font-size: 15px;
-  text-indent: 1px;
-  opacity: 0;
-  box-shadow: 0px 0px 0 3px #d0d0d0;
+    z-index: 1;
+    content: "";
+    background: white;
+    padding: 5px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 15px;
+    text-indent: 1px;
+    opacity: 0;
+    box-shadow: 0px 0px 0 3px #d0d0d0;
+    font-family: "fuji";
 }
 
 .anime {
@@ -185,10 +187,18 @@ body {
   font-size: 18px;
   justify-content: center;
   line-height: 1;
+  font-family: 'fuji';
 }
 
 .pagination button:hover {
   background: #d7d7d7;
+}
+
+button.prev:before {
+    content: '';
+}
+.next:before {
+    content: "";
 }
 
 button.prev {
