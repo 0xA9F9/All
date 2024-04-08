@@ -257,3 +257,48 @@ iframe {
   z-index: 9;
   align-self: center;
 }
+
+
+/* поиск */
+
+.searcher {
+    padding: 5px;
+}
+
+.i-s {
+    max-width: 250px;
+    width: 100%;
+    display: flex;
+    background: whitesmoke;
+    padding: 4px 8px;
+    margin: 1em auto 0 auto;
+    position: relative;
+    transition:150ms;
+    border-radius:3px;
+}
+
+
+.i-s.active {
+    max-width: 350px;
+}
+
+
+
+.search {
+    border: 0;
+    width: 100%;
+    position: relative;
+    border-radius: 3px;
+    background: transparent;
+}
+
+.i-se {
+    font-family: "Material Design Icons";
+    font-size: 20px;
+    align-content: center;
+}
+
+
+.i-se:before {
+  content: "\F0349";
+}
