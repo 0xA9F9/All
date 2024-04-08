@@ -285,6 +285,7 @@ iframe {
     position: relative;
     transition:150ms;
     border-radius:3px;
+    gap:5px;
 }
 
 
@@ -314,14 +315,15 @@ iframe {
 }
 
 .clear-button {
-    appearance: none;
-    border: 0;
     background: #eaeaea;
     color: red;
     border-radius: 50%;
     width: 20px;
     height: 20px;
     cursor: pointer;
-    margin-right: 7px;
-    text-align: center;
+    border: 1px solid #e8e8e8;
+    align-items: center;
+    place-self: center;
+    justify-content: center;
+    padding: inherit;
 }
