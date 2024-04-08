@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const clearButton = document.getElementById('clear-button');
 
         if (searchInput.value.trim() !== '') {
-            clearButton.style.display = 'block';
+            clearButton.style.display = 'flex';
         } else {
             clearButton.style.display = 'none';
         }
