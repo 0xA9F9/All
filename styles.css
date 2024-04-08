@@ -174,20 +174,20 @@ body {
 }
 
 .pagination button {
-  appearance: none;
-  border: 0;
-  background: #ebebeb;
-  cursor: pointer;
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  display: flex;
-  place-items: center;
-  font-size: 18px;
-  justify-content: center;
-  line-height: 1;
-  font-family: 'fuji';
-  color:black;
+    appearance: none;
+    border: 0;
+    background: #ebebeb;
+    cursor: pointer;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    place-items: center;
+    font-size: 22px;
+    justify-content: center;
+    line-height: 1;
+    font-family: "Material Design Icons";
+    color: black;
 }
 
 .pagination button:hover {
@@ -195,18 +195,12 @@ body {
 }
 
 button.prev:before {
-    content: '';
+   content:"\F0142"
 }
 .next:before {
-    content: "";
+    content:"\F0141" 
 }
 
-button.prev {
-  text-indent: -2px;
-}
-button.next {
-  text-indent: 2px;
-}
 
 .modal {
   display: none;
