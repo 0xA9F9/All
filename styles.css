@@ -187,15 +187,21 @@ body {
     width: 28px;
     height: 28px;
     border-radius: 50%;
-    display: flex;
-    place-items: center;
-    justify-content: center;
     line-height: 1;
     color: black;
+    text-align: center;
+    padding: 0;
 }
 
 .pagination button:hover {
   background: #d7d7d7;
+}
+
+.prev {
+    text-indent: -2px;
+}
+.next {
+    text-indent: 2px;
 }
 
 button.prev:before {
