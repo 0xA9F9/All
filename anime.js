@@ -243,7 +243,7 @@ function showKodikPlayer(shikimoriId) {
             modal.innerHTML = `
                 <div class="modal-content">
                     <span class="close" onclick="closeModal()">&times;</span>
-                    <iframe src="${kodikLink}" frameborder="0"></iframe>
+                    <iframe src="${kodikLink}" frameborder="0" allowfullscreen></iframe>
                 </div>
             `;
             document.body.appendChild(modal);
