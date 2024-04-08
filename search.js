@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function() {
         searchInput.dispatchEvent(event);
     }
 
-    const clearButton = document.createElement('button');
+    const clearButton = document.createElement('span');
     clearButton.id = 'clear-button';
     clearButton.className = 'clear-button';
     clearButton.textContent = '×';
