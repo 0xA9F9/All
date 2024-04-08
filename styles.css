@@ -269,7 +269,6 @@ iframe {
     max-width: 250px;
     width: 100%;
     position: relative;
-    display: block;
     margin-top: 1em;
     border-radius: 3px;
     transition: .250s;
@@ -289,6 +288,10 @@ iframe {
     align-items: center;
     width: 100%;
     justify-content: center;
+}
+
+.i-s > * {
+    display: inline-block;
 }
 
 .i-se:before {
