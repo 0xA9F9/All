@@ -198,10 +198,10 @@ body {
 }
 
 button.prev:before {
-   content:"\F0142"
+   content:"\F0141" 
 }
 .next:before {
-    content:"\F0141" 
+    content:"\F0142"
 }
 
 
