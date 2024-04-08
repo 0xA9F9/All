@@ -10,7 +10,12 @@ body {
   font-style: normal;
   font-size: 13px;
 }
-
+button { 
+      appearance: none;
+      border:0;
+      padding:0;
+      cursor: pointer;
+}
 :focus {
   outline: none;
 }
@@ -179,8 +184,6 @@ body {
 }
 
 .pagination button {
-    appearance: none;
-    border: 0;
     background: #ebebeb;
     cursor: pointer;
     width: 28px;
@@ -189,7 +192,6 @@ body {
     line-height: 1;
     color: black;
     text-align: center;
-    padding: 0;
 }
 
 .pagination button:hover {
@@ -238,7 +240,6 @@ button.prev:before {
     color: white;
     font-size: 22px;
     font-weight: bold;
-    cursor: pointer;
     position: absolute;
     right: 15px;
     background: red;
@@ -318,5 +319,4 @@ iframe {
     cursor: pointer;
     margin-right: 7px;
     text-align: center;
-    padding:0;
 }
