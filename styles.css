@@ -318,4 +318,5 @@ iframe {
     cursor: pointer;
     margin-right: 7px;
     text-align: center;
+    padding:0;
 }
