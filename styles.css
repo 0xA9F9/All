@@ -258,15 +258,39 @@ iframe {
   align-self: center;
 }
 
+.search.clicked {
+    max-width: 350px;
+}
+
 .search {
-  background: whitesmoke;
-  border: 0;
-  padding: 7px;
-  margin: 0 auto;
-  max-width: 250px;
-  width: 100%;
-  position: relative;
-  display: block;
-  margin-top: 1em;
-  border-radius: 3px;
+    background: whitesmoke;
+    border: 0;
+    padding: 7px;
+    max-width: 250px;
+    width: 100%;
+    position: relative;
+    display: block;
+    margin-top: 1em;
+    border-radius: 3px;
+    transition: .250s;
+}
+
+.i-se {
+    font-family: "Material Design Icons";
+    font-size: 20px;
+    position: relative;
+    right: 25px;
+    top: 5px;
+}
+
+.i-s {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+}
+
+.i-se:before {
+    content: "\F0349";
 }
