@@ -8,6 +8,7 @@ body {
   font-optical-sizing: auto;
   font-weight:400;
   font-style: normal;
+  font-size: 13px;
 }
 
 :focus {
@@ -130,8 +131,8 @@ body {
 }
 
 .play-it:before {
+    content:"\F040A";
     z-index: 1;
-    content: "";
     background: white;
     padding: 5px;
     position: absolute;
