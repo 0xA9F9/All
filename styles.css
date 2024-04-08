@@ -1,6 +1,11 @@
 * {
   box-sizing: border-box;
+  text-decoration:none;
 }
+
+a { color:black; } 
+a:hover { color:blueviolet; }
+
 html,
 body {
   margin: 0;
@@ -19,7 +24,6 @@ button {
 :focus {
   outline: none;
 }
-
 .all {
   max-width: 1500px;
   width: 100%;
