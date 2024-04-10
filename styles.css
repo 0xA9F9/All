@@ -332,3 +332,7 @@ article {
     text-align: center;
     margin: 1.5em 0 1em 0;
 }
+
+img.anime-poster[alt="Тетрадь смерти"] {
+    content: url(https://desu.shikimori.one/uploads/poster/animes/1535/a938fe8507a89332b35d71f6883b8e88.jpeg);
+}
