@@ -1,0 +1,92 @@
+html,
+textarea {
+  font-family: Fira Sans, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu,
+    Cantarell, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji,
+    Segoe UI Symbol, Noto Color Emoji;
+}
+
+@media all {
+  body {
+    padding: 10px;
+  }
+}
+* {
+  outline: none;
+  font-size: 12px;
+  box-sizing: border-box;
+}
+
+textarea,
+button {
+  appearance: none;
+}
+textarea, .translated {
+  border: 1px solid #4b4683;
+  background: #202020;
+  color: white;
+  border-radius: 3px;
+}
+
+.translated { padding:5px; }
+button {
+  color: #b5b5b5;
+  background-color: #333333;
+  border: 1px solid #474747;
+  border-radius: 3px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #3d3d3d;
+}
+button:active {
+  -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+}
+body {
+  margin: 0;
+  background: #202020;
+}
+
+body:before {
+  --line: hsl(0deg 0% 54.24% / 15%);
+  --size: 60px;
+  content: "";
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  background: linear-gradient(
+        90deg,
+        var(--line) 1px,
+        transparent 1px var(--size)
+      )
+      50% 50% / var(--size) var(--size),
+    linear-gradient(var(--line) 1px, transparent 1px var(--size)) 50% 50% /
+      var(--size) var(--size);
+  -webkit-mask: linear-gradient(-15deg, transparent 30%, white);
+  mask: linear-gradient(-15deg, transparent 30%, white);
+  top: 0;
+  z-index: -1;
+  transform: translate3d(0, 0, -100vmin);
+}
+
+.translate {
+  max-width: 500px;
+  width: 100%;
+  display: grid;
+  gap: 10px;
+  word-break: break-all;
+  white-space: pre-line;
+  overflow-wrap: break-word;
+  text-align: justify;
+  margin: 50px auto auto auto;
+}
+
+
+
+.btns {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
