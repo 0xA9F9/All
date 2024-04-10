@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Эльфийский переводчи">
+    <meta name="keywords" content="Переводчик">
+    <meta name="author" content="pirate-">
+    <link rel="icon" type="image/x-icon" href="favicon.svg">
+    <title>Переводчик</title>
+    <link rel="stylesheet" href="/translator/s.css">
+    <script src="/translator/tr.js"></script>
+
+</head>
+
+<body>
+  <div class="translate">
+    <textarea id="inputText" rows="5" cols="50"style="max-width: 500px; min-height: 100px; padding: 5px;"></textarea>
+    <div class="btns" id="btns"><button onclick="translateToElvish()">Перевести на эльфийский</button>
+    <button onclick="translateToRussian()">Перевести на русский</button> </div>
+    <div id="outputText" class="translated"></div>
+    </div>
+    <script> // если нет текста внутри блока перевода, то, блок исчезнет.
+
+  const outputText = document.getElementById('outputText');
+
+  function toggleDisplay() {
+    if (outputText.textContent.trim().length === 0) {
+      outputText.style.display = 'none';
+    } else {
+      outputText.style.removeProperty('display');
+    }
+  }
+
+  toggleDisplay();
+
+  outputText.addEventListener('DOMSubtreeModified', toggleDisplay); </script>
+   </body>
+</html>
