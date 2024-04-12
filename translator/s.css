@@ -71,14 +71,15 @@ body:before {
 }
 
 .translate {
-  max-width: 500px;
-  width: 100%;
-  display: grid;
-  gap: 10px;
-  white-space: pre-line;
-  overflow-wrap: break-word;
-  text-align: justify;
-  margin: 50px auto auto auto;
+    max-width: 500px;
+    width: 100%;
+    display: grid;
+    gap: 10px;
+    word-break: break-all;
+    white-space: pre-line;
+    overflow-wrap: break-word;
+    text-align: justify;
+    margin: 50px auto auto auto;
 }
 
 
