@@ -103,7 +103,7 @@ function copyTranslation() {
     document.execCommand('copy');
     window.getSelection().removeAllRanges();
     const copyButton = document.getElementById('copybutton');
-    copyButton.textContent = 'Перевод скопирован!';
+    copyButton.textContent = 'Перевод скопирован <span class="mdi mdi-check-bold"></span>';
     setTimeout(() => {
         copyButton.textContent = 'Копировать перевод';
     }, 1500);
