@@ -170,7 +170,7 @@ function showAnimePopup(anime, animeItem) {
     animePopup.style.width = '150px';
     animePopup.style.display = 'block';
     animePopup.style.borderRadius = '3px';
-    animePopup.style.boxShadow = '0 0 0 2px #e6e3e3';
+    animePopup.style.boxShadow = '0 0 0 2px #d9dcef';
 
     
 
