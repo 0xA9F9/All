@@ -75,14 +75,13 @@ body:before {
     width: 100%;
     display: grid;
     gap: 10px;
-    word-break: break-all;
     white-space: pre-line;
     overflow-wrap: break-word;
     text-align: justify;
     margin: 50px auto auto auto;
 }
 
-
+.translated { max-width: 500px; }
 
 .btns {
   display: flex;
