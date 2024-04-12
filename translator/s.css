@@ -6,7 +6,7 @@ textarea {
 }
 
 @media all {
-  body {
+  body, .translated {
     padding: 10px;
   }
 }
@@ -27,7 +27,6 @@ textarea, .translated {
   border-radius: 3px;
 }
 
-.translated { padding:5px; }
 button {
   color: #b5b5b5;
   background-color: #333333;
