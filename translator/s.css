@@ -77,7 +77,6 @@ body:before {
     gap: 10px;
     white-space: pre-line;
     overflow-wrap: break-word;
-    text-align: justify;
     margin: 50px auto auto auto;
 }
 
