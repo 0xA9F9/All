@@ -1,218 +1,238 @@
-
-
- [data-mode="light"] {
---bg: white;
---color: #575757;
---surface: whitesmoke;
---border: #e6e6e6;
---selection: #f6f5db;
---ripple: rgb(197 194 194 / 35%);
---line: hsl(0deg 0% 75% / 15%);
---textarea: white;
+[data-mode="light"] {
+  --bg: white;
+  --color: #575757;
+  --surface: whitesmoke;
+  --border: #e6e6e6;
+  --selection: #f6f5db;
+  --ripple: rgb(197 194 194 / 35%);
+  --line: hsl(0deg 0% 75% / 15%);
+  --textarea: white;
 }
 
 [data-mode="dark"] {
---line: hsl(0deg 0% 54.24% / 15%);
---bg: #202020;
---color: white;
---surface: #333333;
---border: #474747;
---selection: #7037d5;
---ripple: rgb(107 107 107 / 35%);
---textarea: #1f1f22;
+  --line: hsl(0deg 0% 54.24% / 15%);
+  --bg: #202020;
+  --color: white;
+  --surface: #333333;
+  --border: #474747;
+  --selection: #7037d5;
+  --ripple: rgb(107 107 107 / 35%);
+  --textarea: #1f1f22;
 }
 
-
 * {
-    margin:0;
-    padding:0;
-    box-sizing: border-box;
-    border:0;
-    appearance: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: 0;
+  appearance: none;
 }
 
 :focus {
-    outline: none;
+  outline: none;
 }
-
-
 
 html,
 input,
 select,
 textarea {
-color: var(--color);
+  color: var(--color);
 }
-
-
 
 button,
 input,
 textarea {
-border: 1px solid var(--border);
-color: var(--color);
-padding: 5px;
-border-radius: 3px;
+  border: 1px solid var(--border);
+  color: var(--color);
+  padding: 5px;
+  border-radius: 3px;
 }
 
-button, .load-more-button {
-    background: var(--surface);
-    overflow: hidden;
-    position: relative;
-    cursor: pointer;
+button,
+.load-more-button {
+  background: var(--surface);
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
 }
-
 
 .load-more-button {
-    padding: 5px;
-    border: 1px solid var(--border);
-    text-align: center;
-    margin-bottom: 20px;
+  padding: 5px;
+  border: 1px solid var(--border);
+  text-align: center;
+  margin-bottom: 20px;
 }
 
-button.active, button:active {
-    box-shadow: inset 0 0 3px 1px #c2c2c269;
+button.active,
+button:active {
+  box-shadow: inset 0 0 3px 1px #c2c2c269;
 }
 
-textarea, input {
-    background: var(--textarea);
+textarea,
+input {
+  background: var(--textarea);
 }
 
 ::-moz-selection {
-background: var(--selection);
-text-shadow: none;
+  background: var(--selection);
+  text-shadow: none;
 }
 ::selection {
-background: var(--selection);
-text-shadow: none;
+  background: var(--selection);
+  text-shadow: none;
 }
 
 img {
-     border: 0;-ms-interpolation-mode: bicubic;
-    object-fit: cover;
-vertical-align: middle;
-margin: 0;
-padding: 0;
-border: 0;
-font: inherit;
+  border: 0;
+  -ms-interpolation-mode: bicubic;
+  object-fit: cover;
+  vertical-align: middle;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
 }
 
-img[alt="pirate"] { border-radius:50% }
+img[alt="pirate"] {
+  border-radius: 50%;
+}
 html {
-font:12px monospace;
-font-size: 100%;
--webkit-text-size-adjust: 100%;
--ms-text-size-adjust: 100%;
+  font: 12px monospace;
+  font-size: 100%;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
 }
 
 body:before {
-    --size: 60px;
-    content: "";
-    height: 100vh;
-    width: 100vw;
-    position: fixed;
-    background: linear-gradient(90deg, var(--line) 1px, transparent 1px var(--size)) 50% 50% / var(--size) var(--size), linear-gradient(var(--line) 1px, transparent 1px var(--size)) 50% 50% / var(--size) var(--size);
-    -webkit-mask: linear-gradient(-15deg, transparent 30%, white);
-    mask: linear-gradient(-15deg, transparent 30%, white);
-    top: 0;
-    z-index: -1;
-    transform: translate3d(0, 0, -100vmin);
+  --size: 60px;
+  content: "";
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  background: linear-gradient(
+        90deg,
+        var(--line) 1px,
+        transparent 1px var(--size)
+      )
+      50% 50% / var(--size) var(--size),
+    linear-gradient(var(--line) 1px, transparent 1px var(--size)) 50% 50% /
+      var(--size) var(--size);
+  -webkit-mask: linear-gradient(-15deg, transparent 30%, white);
+  mask: linear-gradient(-15deg, transparent 30%, white);
+  top: 0;
+  z-index: -1;
+  transform: translate3d(0, 0, -100vmin);
 }
 
 body {
-    background: var(--bg);
-    line-height: 1.25;
-    display:flex;
-    justify-content: center;
+  background: var(--bg);
+  line-height: 1.25;
+  display: flex;
+  justify-content: center;
 }
 
 .main {
-    max-width: 800px;
-    width: 100%;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin: 1em auto 0 auto;
+  max-width: 800px;
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 1em auto 0 auto;
 }
 
 .login {
-    width: 100%;
-    display: flex;
-    gap: 5px;
-    flex-wrap: wrap;
-    justify-content: center;
-    place-content: center;
+  width: 100%;
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+  justify-content: center;
+  place-content: center;
 }
 .comment {
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    padding: 7px;
-    background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 7px;
+  background: var(--surface);
 }
 
-.menu, .toggle {
-    display: flex;
-    gap: 5px;
-    place-content: end;
+.menu,
+.toggle {
+  display: flex;
+  gap: 5px;
+  place-content: end;
 }
-
 
 .comment > img {
-    width: 40px;
-    float: left;
+  width: 40px;
+  float: left;
 }
 .cmt {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 .comment:hover .delete {
-opacity: 1;
+  opacity: 1;
 }
 .delete:active {
-box-shadow: none;
-color: red;
+  box-shadow: none;
+  color: red;
 }
-.delete{
-opacity: 0;
-border: 0;
-padding: 0 5px 0 0;
-margin-top: -12px;
-margin-bottom: 5px;
-margin-left: auto;
-display: block;
+.delete {
+  opacity: 0;
+  border: 0;
+  padding: 0 5px 0 0;
+  margin-top: -12px;
+  margin-bottom: 5px;
+  margin-left: auto;
+  display: block;
 }
 
 .comments {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
 .post-section {
-    display: flex;
-    gap: 10px;
+  display: flex;
+  gap: 10px;
 }
 
-.controls, .position {
-    display: flex;
-    gap: 10px;
+.controls,
+.position {
+  display: flex;
+  gap: 10px;
 }
 
 .add-img {
-    display: none;
+  display: none;
 }
-.controls .active ~ .add-img { display:block }
+.controls .active ~ .add-img {
+  display: block;
+}
 
 .add-comment {
-    place-self: start;
+  place-self: start;
 }
 
 .commentsBlock {
-    display: flex;
-    gap:5px;
-    flex-direction: column;
+  display: flex;
+  gap: 5px;
+  flex-direction: column;
 }
 
-.more-text { cursor:pointer }
-.more-text:hover, .load-more-button:hover { opacity:.7; }
+.more-text {
+  cursor: pointer;
+}
+.more-text:hover,
+.load-more-button:hover {
+  opacity: 0.7;
+}
+
+.right {
+  text-align: right;
+}
+.center {
+  text-align: center;
+}
