@@ -37,7 +37,7 @@ function displayComments() {
 		let t = document.createElement("div");
 		t.classList.add("comment");
 		let a = document.createElement("img");
-		a.src = "/img/ava.webp", a.alt = "pirate", t.appendChild(a);
+		a.src = "/post/img/ava.webp", a.alt = "pirate", t.appendChild(a);
 		let s = document.createElement("span");
 		s.textContent = "Pirate", s.classList.add("nickname"), t.appendChild(s);
 		let n = document.createElement("button");
