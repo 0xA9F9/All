@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const apiUrl = 'https://shikimori.one/api/animes?order=ranked';
-    const animeUrlPrefix = 'https://shikimori.one/api/animes/';
-    const posterPrefix = 'https://shikimori.one';
+    const apiUrl = 'https://shikimori.one/api/graphql';
+    //const animeUrlPrefix = 'https://shikimori.one/api/animes/';
+    //const posterPrefix = 'https://shikimori.one';
     const perPage = 40;
     let currentPage = getPageFromUrl();
     let searchTerm = getSearchTermFromUrl();
@@ -15,10 +15,45 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function fetchAnime(page) {
-        const searchParam = searchTerm ? `&search=${encodeURIComponent(searchTerm)}` : '';
-        const langParam = searchTerm === 'russian' ? '&lang=ru' : '';
-        const url = `${apiUrl}&page=${page}&limit=${perPage}${searchParam}${langParam}&order=ranked`;
-        return fetch(url)
+        //const searchParam = searchTerm ? `&search=${encodeURIComponent(searchTerm)}` : '';
+        //const langParam = searchTerm === 'russian' ? '&lang=ru' : '';
+        //const url = `${apiUrl}&page=${page}&limit=${perPage}${searchParam}${langParam}&order=ranked`;
+        let query = {
+"operationName": null,
+  "query": `query($page: Int, $search: String, $limit: Int) {
+  		animes(search: $search, limit: $limit, page: $page, order: ranked) {
+    id
+    name
+    english
+    russian
+    score
+    status
+    rating
+    releasedOn { date }
+    nextEpisodeAt
+    episodes
+    episodesAired
+    kind
+    genres { name russian }
+	poster { originalUrl previewUrl }
+	
+  }
+}`,
+    "variables": {
+      "page": page,
+      "search": searchTerm,
+      "limit": perPage
+    }
+}
+        return fetch(apiUrl, {
+    "headers": {
+        "Accept": "*/*",
+        "Accept-Language": "ru,en;q=0.5",
+        "content-type": "application/json",
+    },
+    "body": JSON.stringify(query),
+    "method": "POST",
+})
             .then(response => response.json())
             .catch(error => console.error('Error fetching anime:', error));
     }
@@ -27,9 +62,9 @@ document.addEventListener('DOMContentLoaded', function() {
         const animeListElement = document.getElementById('anime-list');
         animeListElement.innerHTML = '';
         
-        animeList.forEach(anime => {
+        animeList.data.animes.forEach(anime => {
             // Проверяем наличие эпизодов и ссылки на плеер Kodik
-            if ((anime.episodes && anime.episodes > 0) || (anime.episodes_aired && anime.episodes_aired > 0)) {
+            if ((anime.episodes && anime.episodes > 0) || (anime.episodesAired && anime.episodesAired > 0)) {
                 const kodikUrl = `https://kodikapi.com/search?token=50e058ac7c2b71a73ee87e4fea333544&types=anime-serial,anime&shikimori_id=${anime.id}`;
 
                 fetch(kodikUrl)
@@ -45,7 +80,7 @@ playItDiv.classList.add('anime');
 
 const poster = document.createElement('img');
 poster.classList.add('anime-poster');
-poster.src = posterPrefix + anime.image.original;
+poster.src = anime.poster.previewUrl;
 poster.alt = anime.russian || anime.name;
 playItDiv.appendChild(poster);
 
@@ -116,17 +151,17 @@ animeItem.appendChild(playItDiv);
         history.pushState({ page, search: searchTerm }, '', url);
     }
 
-    fetchAnime(currentPage)
-        .then(data => {
-            if (data && data.meta && typeof data.meta.total_count !== 'undefined') {
-                const totalPages = Math.ceil(data.meta.total_count / perPage);
-                displayAnime(data);
-                updatePagination(searchTerm !== '', totalPages);
-            } else {
-                console.error('Ошибка при получении данных: некорректный формат ответа.');
-            }
-        })
-        .catch(error => console.error('Ошибка при получении данных:', error));
+    //fetchAnime(currentPage)
+        //.then(data => {
+           // if (data) {
+                //const totalPages = Math.ceil(data.meta.total_count / perPage);
+              //  displayAnime(data);
+                //updatePagination(searchTerm !== '', totalPages);
+            //} else {
+          //      console.error('Ошибка при получении данных: некорректный формат ответа.');
+          //  }
+       // })
+        //.catch(error => console.error('Ошибка при получении данных:', error));
 
     function searchAnime(searchTerm) {
         fetchAnime(1)
@@ -152,7 +187,7 @@ animeItem.appendChild(playItDiv);
         .then(() => updatePagination(searchTerm !== ''));
 });
 
-function showAnimePopup(anime, animeItem) {
+function showAnimePopup(data, animeItem) {
     const animePopup = document.createElement('div');
     animePopup.classList.add('anime-popup');
     animeItem.appendChild(animePopup);
@@ -173,11 +208,7 @@ function showAnimePopup(anime, animeItem) {
     animePopup.style.boxShadow = '0 0 0 2px #d9dcef';
 
     
-
-    const animeApiUrl = `https://shikimori.one/api/animes/${anime.id}`;
-    fetch(animeApiUrl)
-        .then(response => response.json())
-        .then(data => {
+    
             let status;
             switch (data.status) {
                 case 'anons':
@@ -195,12 +226,12 @@ function showAnimePopup(anime, animeItem) {
             }
 
             let nextEpisode = '';
-            if (data.status === 'ongoing' && data.next_episode_at) {
-                nextEpisode = formatDate(data.next_episode_at);
+            if (data.status === 'ongoing' && data.nextEpisodeAt) {
+                nextEpisode = formatDate(data.nextEpisodeAt);
             }
 
             const genres = data.genres.map(genre => genre.russian || genre.name).join(', ');
-            const episodesInfo = data.episodes_aired !== undefined && data.episodes_aired !== 0 ? data.episodes_aired : data.episodes !== undefined && data.episodes !== 0 ? data.episodes : 0;
+            const episodesInfo = data.episodesAired !== undefined && data.episodesAired !== 0 ? data.episodesAired : data.episodes !== undefined && data.episodes !== 0 ? data.episodes : 0;
 
             animePopup.innerHTML = `
                 <span class="name">${data.russian || data.name}</span> <br>
@@ -209,7 +240,6 @@ function showAnimePopup(anime, animeItem) {
                 ${nextEpisode ? `<span>Следующий эпизод: ${nextEpisode}</span><br>` : ''}
                 <span>Статус: ${status}</span><br>
             `;
-        });
 }
 
 function hideAnimePopup(animeItem) {
