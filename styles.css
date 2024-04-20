@@ -5,7 +5,7 @@
 
 a { color:black; } 
 a:hover { color:blueviolet; }
-
+img { border: 0; -ms-interpolation-mode: bicubic; max-width:100%; object-fit: cover; vertical-align: middle; margin: 0; padding: 0; border: 0; font: inherit; }
 html,
 body {
   margin: 0;
@@ -337,3 +337,5 @@ article {
 img.anime-poster[alt="Тетрадь смерти"] {
     content: url(https://desu.shikimori.one/uploads/poster/animes/1535/a938fe8507a89332b35d71f6883b8e88.jpeg);
 }
+
+.me img:hover { border-color:blueviolet;} .me { float:right; right:10px; top:12px; position:relative;} .me img { border-radius:50%; max-width:38px; border:3px solid whitesmoke}
