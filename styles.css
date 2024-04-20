@@ -339,3 +339,4 @@ img.anime-poster[alt="Тетрадь смерти"] {
 }
 
 .me img:hover { border-color:blueviolet;} .me { float:right; right:10px; top:12px; position:relative;} .me img { border-radius:50%; max-width:38px; border:3px solid whitesmoke}
+@media (max-width:1000px) .me { display:none; } 
