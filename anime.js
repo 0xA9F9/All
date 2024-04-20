@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         animeList.data.animes.forEach(anime => {
             // Проверяем наличие эпизодов и ссылки на плеер Kodik
-            if ((anime.episodes && anime.episodes > 0) || (anime.episodes_aired && anime.episodes_aired > 0)) {
+            if ((anime.episodes && anime.episodes > 0) || (anime.episodesAired && anime.episodesAired > 0)) {
                 const kodikUrl = `https://kodikapi.com/search?token=50e058ac7c2b71a73ee87e4fea333544&types=anime-serial,anime&shikimori_id=${anime.id}`;
 
                 fetch(kodikUrl)
