@@ -21,6 +21,7 @@ button {
       padding:0;
       cursor: pointer;
 }
+::selection { background: black; color: white; }
 :focus {
   outline: none;
 }
