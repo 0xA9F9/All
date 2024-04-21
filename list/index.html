@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anime List</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/7.4.47/css/materialdesignicons.min.css" integrity="sha512-/k658G6UsCvbkGRB3vPXpsPHgWeduJwiWGPCGS14IQw3xpr63AEMdA8nMYG2gmYkXitQxDTn6iiK/2fD4T87qA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <style>
+
+ [data-mode="light"] {
+  --bg: white;
+  --color: #575757;
+  --surface: whitesmoke;
+  --border: #e6e6e6;
+  --selection: #f6f5db;
+  --ripple: rgb(197 194 194 / 35%);
+  --line: hsl(0deg 0% 75% / 15%);
+  --textarea: white;
+  --modal:white;
+  --cc:#d2d2d2;
+  --link:#00aaff;
+  --link-hover:#d6540c;
+}
+
+[data-mode="dark"] {
+  --line: hsl(0deg 0% 54.24% / 15%);
+  --bg: #202020;
+  --color: white;
+  --surface: #333333;
+  --border: #474747;
+  --selection: #7037d5;
+  --ripple: rgb(107 107 107 / 35%);
+  --textarea: #1f1f22;
+  --modal:#1f1f1f;
+  --cc:#484848;
+  --link:#a8e3cc;
+  --link-hover:#f1e74d ;
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: 0;
+  appearance: none;
+}
+
+
+html {
+  font: 12px monospace;
+  font-size: 100%;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+body:before {
+  --size: 60px;
+  content: "";
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  background: linear-gradient(
+        90deg,
+        var(--line) 1px,
+        transparent 1px var(--size)
+      )
+      50% 50% / var(--size) var(--size),
+    linear-gradient(var(--line) 1px, transparent 1px var(--size)) 50% 50% /
+      var(--size) var(--size);
+  -webkit-mask: linear-gradient(-15deg, transparent 30%, white);
+  mask: linear-gradient(-15deg, transparent 30%, white);
+  top: 0;
+  z-index: -1;
+  transform: translate3d(0, 0, -100vmin);
+}
+
+body {
+  background: var(--bg);
+  line-height: 1.25;
+  display: flex;
+  justify-content: center;
+}
+
+
+a {
+    color: var(--link);
+    text-decoration: none;
+}
+
+a:hover {
+    color:var(--link-hover);
+}
+
+hr {
+    border: 1px solid var(--cc);
+}
+
+pre {
+    white-space: pre-wrap;
+}
+
+img {
+  border: 0;
+  -ms-interpolation-mode: bicubic;
+  object-fit: cover;
+  vertical-align: middle;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+}
+
+:focus {
+  outline: none;
+}
+
+textarea:focus {
+    border-color: blueviolet;
+}
+
+html,
+input,
+select,
+textarea {
+  color: var(--color);
+}
+
+button,
+input,
+textarea {
+  border: 1px solid var(--border);
+  color: var(--color);
+  padding: 5px;
+  border-radius: 3px;
+}
+
+
+::selection { background: black; color: white; }
+
+
+h1, h2, h3, h4, h5, h6 {
+    padding: 0;
+    margin: 0;
+}
+
+h4 {
+    font-size: 18px;
+}
+
+       button.active,
+button:active {
+  box-shadow: inset 0 0 3px 1px #c2c2c269;
+}
+
+textarea, input {
+    background: var(--textarea);
+}
+
+      .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+    justify-content: center;
+    align-items: center;
+}
+.modal-content {
+    background-color: var(--modal);
+    padding: 20px;
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    max-width: 820px;
+    width: 100%;
+    height: 100%;
+    max-height: 500px;
+    display: flex;
+    flex-direction: column;
+}
+
+        .close {
+            color: var(--color);
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+.close:hover, .close:focus {
+    color: red;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+        iframe {
+            width: 100%;
+            height: 500px;
+        }
+
+   .header {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border);
+    padding: 0 0 6px 0;
+}
+
+
+.main {
+  max-width: 800px;
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 1em auto 0 auto;
+}
+
+
+button {
+  background: var(--surface);
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+}
+
+.fi { display:none; }
+div .filter.active ~ .fi  { display:inline; }
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.mdi-loading {
+    display: inline-block;
+    animation: spin 560ms linear infinite;
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="main">
+    <div>
+        <button id="mode" class="mode mdi mdi-brightness-6"></button>
+        <button onclick="changeLanguage('ru')" id="ruButton" class="active">RU</button>
+        <button onclick="changeLanguage('en')" id="enButton">EN</button>
+        <button class="filter in mdi mdi-filter-variant"></button>
+<button class="status-btn watching fi mdi mdi-eye" data-status="watching"></button>
+<button class="status-btn hold_on fi mdi mdi-pause" data-status="on_hold"></button>
+<button class="status-btn planned fi mdi mdi-calendar-check" data-status="planned"></button>
+<button class="status-btn dropped fi mdi mdi-close" data-status="dropped"></button>
+<button class="status-btn watched fi mdi mdi-check" data-status="completed"></button>
+
+
+
+
+    </div>
+    <div>
+        <input type="text" id="searchInput" oninput="searchAnime(this.value)" >
+    </div>
+    <div id="my-anime-list"></div>
+
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <iframe id="animePlayer" src="" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
+    </div>
+
+    <script>
+let currentLanguage = 'ru';
+let currentStatus = ''; 
+let animeListData = null;
+let currentSearchResults = [];
+
+function loadJSON(url, callback) {
+    var xhr = new XMLHttpRequest();
+    xhr.overrideMimeType("application/json");
+    xhr.open('GET', url, true);
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+            if (xhr.status === 200) {
+                callback(xhr.responseText);
+            } else {
+                console.error('Failed to load JSON:', xhr.status);
+            }
+        }
+    };
+    xhr.send(null);
+}
+
+
+async function parseJSONAndDisplay(language) {
+    document.getElementById('my-anime-list').innerHTML = '<span class="mdi mdi-loading"></span>';
+
+    loadJSON('https://shikimori.one/pirate-/list_export/animes.json', function (response) {
+        var animeList = JSON.parse(response);
+        animeListData = animeList;
+
+        const filteredAnime = currentSearchResults && currentSearchResults.length > 0 ? currentSearchResults : animeListData;
+
+        // Отображаем список аниме
+        displayAnimeList(filteredAnime, language);
+    });
+}
+
+
+
+
+async function displayAnimeList(animeList, language) {
+    // Сортируем список по алфавиту перед отображением
+    animeList.sort((a, b) => {
+        const titleA = language === 'en' ? a.target_title : a.target_title_ru;
+        const titleB = language === 'en' ? b.target_title : b.target_title_ru;
+        return titleA.localeCompare(titleB);
+    });
+
+    let animeTitles = "";
+    animeList.forEach((anime, index) => {
+        const title = language === 'en' ? anime.target_title : anime.target_title_ru;
+        let status = "";
+        switch (anime.status) {
+            case "on_hold":
+                status = language === 'en' ? "On Hold" : "Отложено";
+                break;
+            case "dropped":
+                status = language === 'en' ? "Dropped" : "Брошено";
+                break;
+            case "completed":
+                status = language === 'en' ? "Completed" : "Просмотрено";
+                break;
+            case "watching":
+                status = language === 'en' ? "Watching" : "Смотрю";
+                break;
+            case "planned":
+                status = language === 'en' ? "Planned" : "Запланировано";
+                break;
+            default:
+                status = language === 'en' ? "Unknown" : "Неизвестно";
+        }
+        const statusClass = getStatusClass(anime.status); // Получаем класс для стилизации
+        if (title && (currentStatus === '' || anime.status === currentStatus)) { // Проверяем статус
+            animeTitles += `<p>${index + 1}. <a href="#" onclick="showKodikPlayer(${anime.target_id})">${title}</a>  <sup class="${statusClass}">${status}</sup></p>`;
+        }
+    });
+    document.getElementById('my-anime-list').innerHTML = animeTitles;
+}
+
+
+document.querySelectorAll('.status-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const status = btn.dataset.status;
+        const isActive = btn.classList.contains('active');
+        
+        if (isActive) {
+            btn.classList.remove('active');
+            currentStatus = '';
+        } else { 
+            btn.classList.add('active');
+            currentStatus = status;
+        }
+        
+        parseJSONAndDisplay(currentLanguage);
+    });
+});
+
+
+
+
+// Функция для получения класса статуса
+function getStatusClass(status) {
+    switch (status) {
+        case "on_hold":
+            return "status-on-hold pik";
+        case "dropped":
+            return "status-dropped pik";
+        case "completed":
+            return "status-completed pik";
+        case "watching":
+            return "status-watching pik";
+        case "planned":
+            return "status-planned pik";
+        default:
+            return "status-unknown pik";
+    }
+}
+
+
+
+async function showKodikPlayer(shikimoriId) {
+    const kodikUrl = `https://kodikapi.com/search?token=50e058ac7c2b71a73ee87e4fea333544&types=anime-serial,anime&shikimori_id=${shikimoriId}`;
+    fetch(kodikUrl)
+        .then(response => response.json())
+        .then(data => {
+            if (data.results.length === 0) {
+                throw new Error('Аниме не найдено в базе данных Kodik.');
+            }
+
+            const kodikAnime = data.results[0];
+            if (!kodikAnime.link) {
+                throw new Error('Для данного аниме нет доступного плеера на Kodik.');
+            }
+
+            const kodikLink = `https:${kodikAnime.link}`;
+            const modal = document.createElement('div');
+            modal.classList.add('modal');
+            modal.innerHTML = `
+                <div class="modal-content">
+                    <div class="header"><h4>Просмотр</h4><span class="close" onclick="closeModal()">&times;</span></div>
+                   <br> <iframe src="${kodikLink}" frameborder="0" allowfullscreen"style="
+    width: var(--max);;
+    height: var(--max);;
+    --max:100%;
+"></iframe></div>
+            `;
+            document.body.appendChild(modal);
+            modal.style.display = 'flex';
+        })
+        .catch(error => alert(error.message));
+}
+
+
+
+function changeLanguage(language) {
+    currentLanguage = language;
+    const ruButton = document.getElementById('ruButton');
+    const enButton = document.getElementById('enButton');
+    
+    if (language === 'ru') {
+        ruButton.classList.add('active');
+        enButton.classList.remove('active');
+    } else {
+        ruButton.classList.remove('active');
+        enButton.classList.add('active');
+    }
+
+    const filteredAnime = currentStatus !== '' ? animeListData.filter(anime => anime.status === currentStatus) : animeListData;
+    displayAnimeList(filteredAnime, language);
+    
+    // Устанавливаем язык поиска в соответствии с выбранным языком интерфейса
+    const searchInputPlaceholder = language === 'en' ? 'Search anime' : 'Поиск аниме';
+    document.getElementById('searchInput').setAttribute('placeholder', searchInputPlaceholder);
+}
+
+
+
+
+
+function closeModal() {
+    const modal = document.querySelector('.modal');
+    if (modal) {
+        modal.parentNode.removeChild(modal);
+    }
+}
+
+async function searchAnime(query) {
+    searchQuery = query;
+    const filteredAnime = animeListData.filter(anime => {
+        const title = currentLanguage === 'en' ? anime.target_title.toLowerCase() : anime.target_title_ru.toLowerCase();
+        return title.includes(query.toLowerCase());
+    });
+    currentSearchResults = filteredAnime;
+    displayAnimeList(filteredAnime, currentLanguage);
+}
+
+
+// Close the modal when clicking outside of it
+window.onclick = function(event) {
+    const modal = document.getElementById('myModal');
+    if (event.target == modal) {
+        closeModal();
+    }
+}
+
+window.onload = function() {
+    // Проверяем язык страницы при загрузке и вызываем соответствующую функцию смены языка
+    const userLanguage = navigator.language || navigator.userLanguage;
+    if (userLanguage.startsWith('ru')) {
+        changeLanguage('ru');
+    } else {
+        changeLanguage('en');
+    }
+};
+
+
+parseJSONAndDisplay(currentLanguage); // Initial load
+
+
+
+document.addEventListener("DOMContentLoaded",function(){let e=document.querySelector(".in");e.addEventListener("click",function(){this.classList.toggle("active")})});const mode=document.getElementById("mode");function toggleMode(){let e=document.documentElement;"light"===e.getAttribute("data-mode")?(e.setAttribute("data-mode","dark"),localStorage.setItem("theme","dark")):(e.setAttribute("data-mode","light"),localStorage.setItem("theme","light"))}function initTheme(){let e=localStorage.getItem("theme");document.documentElement.setAttribute("data-mode",e||"light")}window.addEventListener("DOMContentLoaded",initTheme),mode.addEventListener("click",toggleMode);
+
+function toggleVisibility(element) {
+  if (element.classList.contains('hide')) {
+    element.classList.remove('hide');
+    element.classList.add('show');
+  } else {
+    element.classList.remove('show');
+    element.classList.add('hide');
+  }
+}
+
+    </script>
+
+</body>
+</html>
