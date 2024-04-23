@@ -395,8 +395,8 @@ div .filter.active ~ .fi {
 }
 
 .full.modal .close {
-  text-align-last: end;
   padding: 0;
   margin: 0;
   font-size: 20px;
+  place-self: self-end;
 }
