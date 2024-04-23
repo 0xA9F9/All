@@ -1,0 +1,402 @@
+[data-mode="light"] {
+  --bg: white;
+  --color: #575757;
+  --surface: whitesmoke;
+  --border: #e6e6e6;
+  --selection: black;
+  --ripple: rgb(197 194 194 / 35%);
+  --line: hsl(0deg 0% 75% / 15%);
+  --textarea: white;
+  --modal: white;
+  --cc: #d2d2d2;
+  --link: #00aaff;
+  --link-hover: #d6540c;
+}
+
+[data-mode="dark"] {
+  --line: hsl(0deg 0% 54.24% / 15%);
+  --bg: #202020;
+  --color: white;
+  --surface: #333333;
+  --border: #474747;
+  --selection: #7037d5;
+  --ripple: rgb(107 107 107 / 35%);
+  --textarea: #1f1f22;
+  --modal: #1f1f1f;
+  --cc: #484848;
+  --link: #7d74d6;
+  --link-hover: #f1e74d;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: 0;
+  appearance: none;
+}
+
+html {
+  font: 12px monospace;
+  font-size: 100%;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  --sc: white;
+  --lang: #bbbcc1;
+}
+
+body:before {
+  --size: 60px;
+  content: "";
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  background: linear-gradient(
+        90deg,
+        var(--line) 1px,
+        transparent 1px var(--size)
+      )
+      50% 50% / var(--size) var(--size),
+    linear-gradient(var(--line) 1px, transparent 1px var(--size)) 50% 50% /
+      var(--size) var(--size);
+  -webkit-mask: linear-gradient(-15deg, transparent 30%, white);
+  mask: linear-gradient(-15deg, transparent 30%, white);
+  top: 0;
+  z-index: -1;
+  transform: translate3d(0, 0, -100vmin);
+}
+
+body {
+  background: var(--bg);
+  line-height: 1.25;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+[placeholder]:focus {
+  border: 1px solid var(--selection);
+}
+
+a {
+  color: var(--link);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--link-hover);
+}
+
+hr {
+  border: 1px solid var(--cc);
+}
+
+pre {
+  white-space: pre-wrap;
+}
+
+img {
+  border: 0;
+  -ms-interpolation-mode: bicubic;
+  object-fit: cover;
+  vertical-align: middle;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+}
+
+img::selection {
+  background: transparent;
+}
+
+:focus {
+  outline: none;
+}
+
+textarea:focus {
+  border-color: blueviolet;
+}
+
+html,
+input,
+select,
+textarea,
+button {
+  color: var(--color);
+}
+
+button,
+input,
+textarea {
+  border: 1px solid var(--border);
+  padding: 5px;
+  border-radius: 3px;
+}
+
+::selection {
+  background: var(--selection);
+  color: var(--sc);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  padding: 0;
+  margin: 0;
+}
+
+h4 {
+  font-size: 18px;
+}
+
+button.active,
+button:active {
+  box-shadow: inset 0 0 3px 1px #c2c2c269;
+}
+
+textarea,
+input {
+  background: var(--textarea);
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+  justify-content: center;
+  align-items: center;
+}
+.modal-content {
+  background-color: var(--modal);
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  max-width: 820px;
+  width: 100%;
+  height: 100%;
+  max-height: 500px;
+  display: flex;
+  flex-direction: column;
+}
+
+.close {
+  color: var(--color);
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: red;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+iframe {
+  width: 100%;
+  height: 500px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border);
+  padding: 0 0 6px 0;
+}
+
+footer,
+.main {
+  max-width: 800px;
+  width: 100%;
+}
+
+footer {
+  margin: 0 auto;
+  text-align: center;
+  opacity: 0.5;
+  padding-bottom: 10px;
+}
+
+.main {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0 auto;
+  min-height: 95vh;
+  padding: 15px;
+}
+
+button {
+  background: var(--surface);
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+}
+
+.fi {
+  display: none;
+}
+div .filter.active ~ .fi {
+  display: inline;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.mdi-loading {
+  display: inline-block;
+  animation: spin 560ms linear infinite;
+  place-self: flex-start;
+}
+
+.my-anime-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+}
+
+.my-anime-list .anime {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.poster {
+  --size: 38px;
+  max-width: var(--size);
+  max-height: var(--size);
+  border-radius: 5px;
+  width: 100%;
+  height: 100%;
+  cursor: zoom-in;
+}
+
+.text {
+  align-content: center;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.num {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 2px 5px;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.click-menu {
+  display: none;
+  position: absolute;
+  background-color: var(--bg);
+  border: 1px solid var(--border);
+  padding: 5px 0;
+  min-width: 120px;
+  z-index: 1000;
+}
+
+.search.on {
+  max-width: 220px;
+  width: 100%;
+}
+
+.search {
+  transition: 320ms;
+  max-width: 120px;
+  width: 100%;
+}
+
+.lang {
+  border: 1px solid var(--border);
+  display: inline-block;
+  overflow: hidden;
+  cursor: pointer;
+  width: 16px;
+  height: 14px;
+}
+
+.lang.active {
+  border-color: var(--lang);
+}
+
+.lang.ru {
+  background: url("ru.svg") no-repeat center / cover;
+}
+
+.lang.grb {
+  background: url("grb.svg") no-repeat center / cover;
+}
+
+.modal-body {
+  display: flex;
+  height: 100%;
+  align-self: center;
+  align-items: center;
+  font-size: clamp(0.875rem, 0.3918rem + 2.0619vw, 1.5rem);
+}
+
+.status-completed {
+  color: green;
+}
+
+.status-watching {
+  color: #7c861c;
+}
+
+.status-on-hold {
+  color: #688c8c;
+}
+
+.status-planned {
+  color: #8e834e;
+}
+
+.status-dropped {
+  color: #eb4a2d;
+}
+
+.main > div > button {
+  margin-bottom: 5px;
+}
+
+.full-poster {
+  max-height: 318px;
+  max-width: 225px;
+  width: 100%;
+  height: 100%;
+  align-self: center;
+}
+
+.full.modal > .modal-content {
+  width: auto;
+  height: auto;
+  padding: 1px 15px 15px 15px;
+}
+
+.full.modal .close {
+  text-align-last: end;
+  padding: 0;
+  margin: 0;
+  font-size: 20px;
+}
