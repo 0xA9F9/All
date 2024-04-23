@@ -7,7 +7,7 @@ let currentLanguage="ru",currentStatus="",animeListData=null,currentSearchResult
                         <div class="modal-body">
                             ${"ru"===s?"Эпизоды не найдены в базе данных.":"Episodes not found in the database."}
                         </div>
-                    </div>`,document.body.appendChild(a),a.style.display="flex";return}let n=e.results[0],i=`https://shikimori.one${n.link}`,r=document.createElement("div");r.classList.add("modal"),r.innerHTML=`
+                    </div>`,document.body.appendChild(a),a.style.display="flex";return}let n=e.results[0],i=`https://shikimori.one/${n.link}`,r=document.createElement("div");r.classList.add("modal"),r.innerHTML=`
                 <div class="modal-content">
                     <div class="header"> <h4 class="mdi mdi-monitor-eye"> ${t}</h4><span class="close" onclick="closeModal()">&times;</span></div>
                     <br> <iframe src="${i}" frameborder="0" allowfullscreen style="width: var(--max); height: var(--max); --max:100%;"></iframe>
