@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Аниме список">
+    <meta name="keywords" content="Anime list, Аниме список,">
+    <meta name="author" content="pirate-">
+    <link rel="icon" type="image/x-icon" href="favicon.svg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/7.4.47/css/materialdesignicons.min.css" integrity="sha512-/k658G6UsCvbkGRB3vPXpsPHgWeduJwiWGPCGS14IQw3xpr63AEMdA8nMYG2gmYkXitQxDTn6iiK/2fD4T87qA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <title>#</title>
+</head>
+<body>
+<!----- MAIN -------> 
+    <div class="main">
+    <div>
+        <button id="mode" class="mode mdi mdi-brightness-6"></button>
+        <button class="filter in mdi mdi-filter-variant"></button>
+<button class="status-btn watching fi mdi mdi-eye" data-status="watching"></button>
+<button class="status-btn hold_on fi mdi mdi-pause" data-status="on_hold"></button>
+<button class="status-btn planned fi mdi mdi-calendar-check" data-status="planned"></button>
+<button class="status-btn dropped fi mdi mdi-close" data-status="dropped"></button>
+<button class="status-btn watched fi mdi mdi-check" data-status="completed"></button>
+        <input type="text" id="searchInput" class="search" oninput="searchAnime(this.value)" >
+<div style="
+    float: right;
+    margin-top: 5px;
+">  <span onclick="changeLanguage('ru')" id="ruButton" class="lang ru active"></span>
+    <span onclick="changeLanguage('en')" id="enButton" class="lang grb"></span></div>
+    </div>
+    <div id="my-anime-list" class="my-anime-list"></div>
+    </div>
+  <!----- FOOTER -------> 
+    <footer>©  2024 Все права защищены.</footer>
+</body>
+</html>
