@@ -1,6 +1,6 @@
 [data-mode="light"] {
   --bg: white;
-  --color: #1b91cc;
+  --color: #575757;
   --surface: whitesmoke;
   --border: #e6e6e6;
   --selection: black;
@@ -9,7 +9,7 @@
   --textarea: white;
   --modal: white;
   --cc: #d2d2d2;
-  --link: #00aaff;
+  --link: #1b91cc;
   --link-hover: #d6540c;
 }
 
