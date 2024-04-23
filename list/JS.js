@@ -25,7 +25,7 @@ let currentLanguage="ru",currentStatus="",animeListData=null,currentSearchResult
         ruButton.classList.add("active");
         enButton.classList.remove("active");
     } else if (lang === 'en') {
-        clickMenu.textContent = "don't touch code!";
+        clickMenu.textContent = "don't touch the code!";
         footerText.textContent = "© 2024 All rights reserved.";
         enButton.classList.add("active");
         ruButton.classList.remove("active");
