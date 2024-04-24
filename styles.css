@@ -255,6 +255,7 @@ button.prev:before {
     border-radius: 50%;
     cursor:pointer;
     font-size:15px;
+    text-indent: 1px;
 }
 
 .close:active {
