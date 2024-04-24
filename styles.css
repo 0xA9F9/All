@@ -254,6 +254,7 @@ button.prev:before {
     text-align: center;
     border-radius: 50%;
     cursor:pointer;
+    font-size:15px;
 }
 
 .close:active {
