@@ -1,12 +1,12 @@
 let firebaseConfig = {
-	apiKey: "AIzaSyDQU1xjjIBFKferAQbVlSC2wxMG-Oa0y3M",
-	authDomain: "pirate-1.firebaseapp.com",
-	databaseURL: "https://pirate-1-default-rtdb.europe-west1.firebasedatabase.app",
-	projectId: "pirate-1",
-	storageBucket: "pirate-1.appspot.com",
-	messagingSenderId: "859831291688",
-	appId: "1:859831291688:web:f5d6e62ea9c268947eca1d",
-	measurementId: "G-R02JJVTG9B"
+  apiKey: "AIzaSyDR5uWn6NzFurTtLwcuJ12qQGCuD7naQKg",
+  authDomain: "just-pirate.firebaseapp.com",
+  databaseURL: "https://just-pirate-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "just-pirate",
+  storageBucket: "just-pirate.appspot.com",
+  messagingSenderId: "918609446505",
+  appId: "1:918609446505:web:cbdfccee2bc947b953c4f8",
+  measurementId: "G-0ESJ3C1PF4"
 };
 import {
 	initializeApp as e
