@@ -243,7 +243,6 @@ button.prev:before {
 
 .close {
     color: white;
-    font-size: 22px;
     font-weight: bold;
     position: absolute;
     right: 15px;
