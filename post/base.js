@@ -1,4 +1,4 @@
-let firebaseConfig = {
+const firebaseConfig = {
   apiKey: "AIzaSyDR5uWn6NzFurTtLwcuJ12qQGCuD7naQKg",
   authDomain: "just-pirate.firebaseapp.com",
   databaseURL: "https://just-pirate-default-rtdb.europe-west1.firebasedatabase.app",
@@ -7,7 +7,7 @@ let firebaseConfig = {
   messagingSenderId: "918609446505",
   appId: "1:918609446505:web:cbdfccee2bc947b953c4f8",
   measurementId: "G-0ESJ3C1PF4"
-};
+}; 
 import {
 	initializeApp as e
 } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
