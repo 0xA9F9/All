@@ -59,3 +59,26 @@ window.onscroll = function() {
 function scrollToTop() {
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0; 
+
+
+
+//ripple
+
+document.addEventListener('DOMContentLoaded', function() {
+  var buttons = document.querySelectorAll('button');
+  buttons.forEach(function(button) {
+    button.addEventListener('click', function(event) {
+      var rippleEffect = document.createElement('span');
+      rippleEffect.classList.add('ripple');
+      var rect = button.getBoundingClientRect();
+      var x = event.clientX - rect.left;
+      var y = event.clientY - rect.top;
+      rippleEffect.style.left = x + 'px';
+      rippleEffect.style.top = y + 'px';
+      button.appendChild(rippleEffect);
+      setTimeout(function() {
+        button.removeChild(rippleEffect);
+      }, 600);
+    });
+  });
+});
