@@ -169,6 +169,20 @@ body {
   margin: 1em auto 0 auto;
 }
 
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    background-color: var(--ripple);
+    animation: ripple-effect 0.5s linear;
+}
+
+@keyframes ripple-effect {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
 .login {
   width: 100%;
   display: flex;
