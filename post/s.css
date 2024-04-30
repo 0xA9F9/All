@@ -38,7 +38,7 @@
   outline: none;
 }
 
-textarea:focus {
+textarea:focus, .search-input:focus {
     border-color: blueviolet;
 }
 
@@ -74,7 +74,7 @@ button,
 }
 
 button.active,
-button:active {
+button:active, .show {
   box-shadow: inset 0 0 3px 1px #c2c2c269;
 }
 
@@ -336,4 +336,5 @@ code {
     margin-top: -1px;
 }
 
-
+.search  .search-input { display:none }
+.search .show ~ .search-input { display:initial; }
