@@ -32,29 +32,51 @@ loadMoreButton.textContent = "Еще", loadMoreButton.classList.add("load-more-b
 let comments = [],
 	commentLimit = 10;
 
-function displayComments() {
-	commentsBlock.innerHTML = "", comments.slice(0, commentLimit).forEach(e => {
-		let t = document.createElement("div");
-		t.classList.add("comment");
-		let a = document.createElement("img");
-		a.src = "/img/ava.webp", a.alt = "pirate", t.appendChild(a);
-		let s = document.createElement("span");
-		s.textContent = "0xA9F9", s.classList.add("nickname"), t.appendChild(s);
-		let n = document.createElement("button");
-		n.classList.add("delete", "mdi", "mdi-close"), n.addEventListener("click", () => {
-			deleteComment(e.key)
-		}), t.appendChild(n);
-		let m = document.createElement("div"),
-			o = e.text.substring(0, 400);
-		if (m.innerHTML = parseCommentText(o), m.classList.add("cmt"), t.appendChild(m), e.text.length > 400) {
-			let i = document.createElement("span");
-			i.textContent = "... Читать дальше", i.addEventListener("click", () => {
-				m.innerHTML = parseCommentText(e.text), i.style.display = "none"
-			}), i.classList.add("more-text"), m.appendChild(i)
-		}
-		commentsBlock.appendChild(t)
-	}), commentLimit >= comments.length ? loadMoreButton.style.display = "none" : loadMoreButton.style.display = "inline"
+function displayComment(comment) {
+    let div = document.createElement("div");
+    div.classList.add("comment");
+
+    let avatar = document.createElement("img");
+    avatar.src = "img/ava.webp";
+    avatar.alt = "pirate";
+    div.appendChild(avatar);
+
+    let nickname = document.createElement("span");
+    nickname.textContent = "Pirate";
+    nickname.classList.add("nickname");
+    div.appendChild(nickname);
+
+    let deleteButton = document.createElement("button");
+    deleteButton.classList.add("delete", "mdi", "mdi-close");
+    deleteButton.addEventListener("click", () => deleteComment(comment.key));
+    div.appendChild(deleteButton);
+
+    let textDiv = document.createElement("div");
+    let textContent = comment.text.substring(0, 400);
+    textDiv.innerHTML = parseCommentText(textContent);
+    textDiv.classList.add("cmt");
+    div.appendChild(textDiv);
+
+    if (comment.text.length > 400) {
+        let moreText = document.createElement("span");
+        moreText.textContent = "... Читать дальше";
+        moreText.addEventListener("click", () => {
+            textDiv.innerHTML = parseCommentText(comment.text);
+            moreText.style.display = "none";
+        });
+        moreText.classList.add("more-text");
+        textDiv.appendChild(moreText);
+    }
+
+    commentsBlock.appendChild(div);
 }
+
+function displayComments() {
+    commentsBlock.innerHTML = "";
+    comments.slice(0, commentLimit).forEach(displayComment);
+    commentLimit >= comments.length ? loadMoreButton.style.display = "none" : loadMoreButton.style.display = "inline";
+}
+
 
 function parseCommentText(e) {
     // Заменяем [hr] на <hr>
@@ -134,3 +156,18 @@ loadMoreButton.addEventListener("click", () => {
 		text: t
 	}), commentInput.value = "") : alert("Пожалуйста, введите комментарий.")
 });
+
+
+let searchInput = document.getElementById('searchInput');
+
+searchInput.addEventListener('input', function() {
+    let searchText = searchInput.value.toLowerCase();
+    displayFilteredComments(searchText);
+});
+
+function displayFilteredComments(searchText) {
+    let filteredComments = comments.filter(comment => comment.text.toLowerCase().includes(searchText));
+    commentsBlock.innerHTML = "";
+    filteredComments.slice(0, commentLimit).forEach(displayComment);
+    commentLimit >= filteredComments.length ? loadMoreButton.style.display = "none" : loadMoreButton.style.display = "inline";
+}
