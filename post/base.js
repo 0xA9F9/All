@@ -37,12 +37,12 @@ function displayComment(comment) {
     div.classList.add("comment");
 
     let avatar = document.createElement("img");
-    avatar.src = "img/ava.webp";
+    avatar.src = "/img/ava.webp";
     avatar.alt = "pirate";
     div.appendChild(avatar);
 
     let nickname = document.createElement("span");
-    nickname.textContent = "Pirate";
+    nickname.textContent = "0xA9F9";
     nickname.classList.add("nickname");
     div.appendChild(nickname);
 
