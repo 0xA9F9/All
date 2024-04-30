@@ -151,25 +151,23 @@ function formatTimeDifference(commentDate) {
     const years = Math.floor(days / 365);
 
     if (years > 0) {
-        return years === 1 ? "год назад" : `${years} года назад`;
+        return years === 1 ? "год назад" : `${years} ${years % 10 === 2 || years % 10 === 3 || years % 10 === 4 ? 'года' : 'лет'} назад`;
     } else if (months > 0) {
-        return months === 1 ? "месяц назад" : `${months} месяца назад`;
+        return months === 1 ? "месяц назад" : `${months} ${months % 10 === 1 ? 'месяц' : 'месяца'} назад`;
     } else if (weeks > 0) {
-        return weeks === 1 ? "неделю назад" : `${weeks} недели назад`;
+        return weeks === 1 ? "неделю назад" : `${weeks} ${weeks % 10 === 1 ? 'неделю' : 'недели'} назад`;
     } else if (days > 0) {
-        return days === 1 ? "вчера" : `${days} дня назад`;
+        return days === 1 ? "вчера" : `${days} ${days % 10 === 1 ? 'день' : 'дня'} назад`;
     } else if (hours > 0) {
-        return hours === 1 ? "час назад" : `${hours} часа назад`;
+        return hours === 1 ? "час назад" : `${hours} ${hours % 10 === 1 ? 'час' : 'часа'} назад`;
     } else if (minutes > 0) {
-        return minutes === 1 ? "минуту назад" : `${minutes} минут назад`;
+        return minutes === 1 ? "минуту назад" : `${minutes} ${minutes % 10 === 1 ? 'минуту' : 'минуты'} назад`;
     } else if (seconds > 0) {
-        return seconds === 1 ? "секунду назад" : `${seconds} секунд назад`;
+        return seconds === 1 ? "секунду назад" : `${seconds} ${seconds % 10 === 1 ? 'секунду' : 'секунды'} назад`;
     } else {
         return "только что";
     }
 }
-
-
 
 function sendComment(e) {
     if (e.text.trim() !== "") {
