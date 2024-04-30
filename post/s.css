@@ -254,7 +254,7 @@ body {
     flex-wrap: wrap;
     place-items: flex-start;
 }
-.add-img > * {
+.add-img > *:not(button) {
     padding:2px  5px;
 }
 
