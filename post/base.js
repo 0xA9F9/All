@@ -166,7 +166,7 @@ searchInput.addEventListener('input', function() {
 });
 
 function displayFilteredComments(searchText) {
-    let filteredComments = comments.filter(comment => comment.text.toLowerCase().includes(searchText));
+    let filteredComments = comments.filter(comment => comment.text.toLowerCase().startsWith(searchText));
     commentsBlock.innerHTML = "";
     filteredComments.slice(0, commentLimit).forEach(displayComment);
     commentLimit >= filteredComments.length ? loadMoreButton.style.display = "none" : loadMoreButton.style.display = "inline";
