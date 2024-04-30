@@ -264,6 +264,7 @@ body {
 .controls .active ~ .add-img {
   display: flex;
   gap: 10px;
+  flex-wrap:wrap;
 }
 .add-comment {
   place-self: end;
