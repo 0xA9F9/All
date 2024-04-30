@@ -255,7 +255,7 @@ body {
     place-items: flex-start;
 }
 .add-img > * {
-    padding:2px  5px;
+    padding:3px  5px;
 }
 
 .add-img, .controls > .active ~ *,  .controls .hide > .active ~ * {
