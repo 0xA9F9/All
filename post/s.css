@@ -320,7 +320,11 @@ code {
     background: var(--code);
     border: 1px solid var(--cc);
 }
-
+.link {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
 .bt-bb .hide ~ .link {
     display: none;
 }
