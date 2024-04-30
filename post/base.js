@@ -1,13 +1,13 @@
 const firebaseConfig = {
-  apiKey: "AIzaSyDR5uWn6NzFurTtLwcuJ12qQGCuD7naQKg",
-  authDomain: "just-pirate.firebaseapp.com",
-  databaseURL: "https://just-pirate-default-rtdb.europe-west1.firebasedatabase.app",
-  projectId: "just-pirate",
-  storageBucket: "just-pirate.appspot.com",
-  messagingSenderId: "918609446505",
-  appId: "1:918609446505:web:cbdfccee2bc947b953c4f8",
-  measurementId: "G-0ESJ3C1PF4"
-}; 
+    apiKey: "AIzaSyCkvaWekEMMk0y43Nf744KRaH9QYd3Hj6I",
+    authDomain: "test-71cc8.firebaseapp.com",
+    databaseURL: "https://test-71cc8-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "test-71cc8",
+    storageBucket: "test-71cc8.appspot.com",
+    messagingSenderId: "911748905714",
+    appId: "1:911748905714:web:ad42c0b23920a5f9bd6e6b",
+    measurementId: "G-FZ0SC6YJJB"
+  }; 
 import {
 	initializeApp as e
 } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
