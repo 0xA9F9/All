@@ -255,14 +255,15 @@ body {
     place-items: flex-start;
 }
 .add-img > * {
-    margin: 3px;
+    padding:2px  5px;
 }
 
 .add-img, .controls > .active ~ *,  .controls .hide > .active ~ * {
   display: none;
 }
 .controls .active ~ .add-img {
-  display: block;
+  display: flex;
+  gap: 10px;
 }
 .add-comment {
   place-self: end;
