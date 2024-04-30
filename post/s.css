@@ -105,7 +105,9 @@ hr {
 pre {
     white-space: pre-wrap;
 }
-
+img::selection {
+    background: transparent;
+}
 img {
   border: 0;
   -ms-interpolation-mode: bicubic;
