@@ -22,6 +22,10 @@
 <script type="module" src="base.js"></script>
 <form id="commentForm" class="comments">
     <div class="controls">
+        <div class="search">
+<button type="button" class="hide mdi mdi-magnify"type="button"onclick="toggleVisibility(this)"></button>
+<input type="text" id="searchInput" placeholder="Поиск" class="search-input">
+</div>
         <button type="button" class="in mdi mdi-image"></button>
         <div class="add-img">
     <input type="text" id="image-url-input" placeholder="Ссылка на изображение">
@@ -75,10 +79,6 @@ function insertTextAtCursor(textarea, text) {
  <button id="put-list" class="put-list mdi mdi-format-list-bulleted" type="button"></button>
  <button id="spoiler" class="spoiler mdi mdi-eye-off" type="button"></button>
   <button id="put-code" class="put-code mdi mdi-xml" type="button"></button>
-</div>
-      <div class="search">
-<button type="button" class="hide mdi mdi-magnify"type="button"onclick="toggleVisibility(this)"></button>
-<input type="text" id="searchInput" placeholder="Поиск" class="search-input">
 </div>
     </div>
     <div class="post-section">
