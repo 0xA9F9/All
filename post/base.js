@@ -39,7 +39,7 @@ function displayComments() {
 		let a = document.createElement("img");
 		a.src = "/img/ava.webp", a.alt = "pirate", t.appendChild(a);
 		let s = document.createElement("span");
-		s.textContent = "Pirate", s.classList.add("nickname"), t.appendChild(s);
+		s.textContent = "0xA9F9", s.classList.add("nickname"), t.appendChild(s);
 		let n = document.createElement("button");
 		n.classList.add("delete", "mdi", "mdi-close"), n.addEventListener("click", () => {
 			deleteComment(e.key)
