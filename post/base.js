@@ -58,36 +58,30 @@ function displayComment(comment) {
 
     let textDiv = document.createElement("div");
     textDiv.classList.add("cmt");
-
-    // Проверяем, содержит ли текст комментария изображение с кодированными данными
-    if (comment.text.includes("data:image")) {
-        textDiv.innerHTML = parseCommentText(comment.text);
-    } else {
-        let textContent = comment.text.substring(0, 400);
-        textDiv.innerHTML = parseCommentText(textContent);
-
-        if (comment.text.length > 400) {
-            let moreText = document.createElement("span");
-            moreText.textContent = "... Читать дальше";
-            moreText.addEventListener("click", () => {
-                textDiv.innerHTML = parseCommentText(comment.text);
-                moreText.style.display = "none";
-            });
-            moreText.classList.add("more-text");
-            textDiv.appendChild(moreText);
-        }
-    }
+    textDiv.innerHTML = parseCommentText(comment.text);
 
     div.appendChild(textDiv);
 
- div.querySelectorAll('code').forEach((block) => {
+    div.querySelectorAll('code').forEach((block) => {
         hljs.highlightBlock(block);
     });
 
     commentsBlock.appendChild(div);
 
-
+    if (textDiv.clientHeight > 200) {
+        let moreText = document.createElement("div");
+        moreText.textContent = "Показать";
+        moreText.addEventListener("click", () => {
+            textDiv.style.maxHeight = "none";
+            moreText.style.display = "none";
+        });
+        moreText.classList.add("more-text");
+        div.appendChild(moreText);
+        textDiv.style.maxHeight = "200px";
+        textDiv.style.overflow = "hidden";
+    }
 }
+
 
 
 function displayComments() {
@@ -327,4 +321,3 @@ document.addEventListener("keydown", function(event) {
         insertTextAtCursor("[spoiler]" + selectedText + "[/spoiler]");
     }
 });
-
