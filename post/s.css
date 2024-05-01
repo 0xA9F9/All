@@ -217,11 +217,15 @@ body {
 .login {
   width: 100%;
   display: flex;
-  gap: 5px;
+  gap: 10px;
   flex-wrap: wrap;
   justify-content: center;
   place-content: center;
 }
+.q {
+    background: var(--button);
+}
+
 .comment {
   border-radius: 4px;
   padding: 7px;
