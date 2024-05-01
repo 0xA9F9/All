@@ -293,9 +293,7 @@ body {
   border-top: 1px solid var(--line);
 }
 
-.add-img,
-.controls > .active ~ *,
-.controls .hide > .active ~ * {
+.add-img, .controls > .active ~ *:not(.add-comment), .controls .hide > .active ~ *:not(.add-comment) {
   display: none;
 }
 
