@@ -70,12 +70,14 @@ button.mdi {
 }
 
 .load-more-button {
-  padding: 5px;
-  border: 1px solid var(--border);
-  text-align: center;
-  margin-bottom: 20px;
+    padding: 5px;
+    border: 1px solid var(--border);
+    text-align: center;
+    margin-bottom: 20px;
+    background: var(--surface);
+    border-radius: 3px;
+    cursor: pointer;
 }
-
 :focus:not(textarea),
 .active,
 .show {
