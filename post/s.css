@@ -12,6 +12,7 @@
   --link: #00aaff;
   --button: whitesmoke;
   --focused: rgba(255, 255, 255, 0.8);
+  --comment:rgb(245 245 245 / 55%);
 }
 
 [data-mode="dark"] {
@@ -27,6 +28,7 @@
   --link: #f1e74d;
   --button: rgb(71 71 71);
   --focused: rgb(0 0 0 / 60%);
+  --comment:var(--focused);
 }
 
 * {
