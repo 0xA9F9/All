@@ -2,7 +2,7 @@
   --bg: white;
   --color: #575757;
   --surface: rgb(255 255 255 / 50%);
-  --border: #d7d7d7;
+  --border: #eaeaea;
   --selection: #d3e6ff;
   --ripple: rgb(197 194 194 / 35%);
   --line: hsl(0deg 0% 75% / 15%);
@@ -10,7 +10,7 @@
   --code: white;
   --cc: #d2d2d2;
   --link: #00aaff;
-  --button: #eaeaea;
+  --button: whitesmoke;
   --focused: rgba(255, 255, 255, 0.8);
   --comment:rgb(245 245 245 / 55%);
 }
