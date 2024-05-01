@@ -79,7 +79,7 @@ button.mdi {
     border-radius: 3px;
     cursor: pointer;
 }
-:focus:not(textarea, .delete),
+
 .active,
 .show {
   box-shadow: 0px 0px 0 2px var(--selection);
