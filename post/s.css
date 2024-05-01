@@ -85,9 +85,16 @@ button.mdi {
   box-shadow: 0px 0px 0 2px var(--selection);
 }
 
-.file-upload {
-    padding: 2px 5px;
-    cursor:pointer;
+.main .file-upload {
+    height: 29px;
+    width: 29px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.file-upload:hover {
+    box-shadow: 0 0 0px 2px #7d90ad;
 }
 
 .image-in {
