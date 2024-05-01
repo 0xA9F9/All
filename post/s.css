@@ -77,7 +77,7 @@ button.mdi {
     border: 1px solid var(--border);
     text-align: center;
     margin-bottom: 20px;
-    background: var(--surface);
+    background: var(--button);
     border-radius: 3px;
     cursor: pointer;
 }
@@ -247,6 +247,7 @@ body {
 .menu button,
 .toggle button {
   background: var(--button);
+  border: 1px solid var(--border);
 }
 
 .menu,
