@@ -10,7 +10,7 @@
   --code: white;
   --cc: #d2d2d2;
   --link: #00aaff;
-  --button: whitesmoke;
+  --button: #eaeaea;
   --focused: rgba(255, 255, 255, 0.8);
   --comment:rgb(245 245 245 / 55%);
 }
@@ -26,7 +26,7 @@
   --code: #1f1f1f;
   --cc: #484848;
   --link: #f1e74d;
-  --button: rgb(71 71 71);
+  --button: rgb(33 32 32);
   --focused: rgb(0 0 0 / 60%);
   --comment:var(--focused);
 }
