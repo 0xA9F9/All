@@ -1,7 +1,7 @@
 [data-mode="light"] {
   --bg: white;
   --color: #575757;
-  --surface: rgb(245 245 245 / 40%);
+  --surface: rgb(255 255 255 / 50%);
   --border: #e6e6e6;
   --selection: #d3e6ff;
   --ripple: rgb(197 194 194 / 35%);
