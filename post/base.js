@@ -63,10 +63,10 @@ function displayComment(comment) {
     if (comment.text.includes("data:image")) {
         textDiv.innerHTML = parseCommentText(comment.text);
     } else {
-        let textContent = comment.text.substring(0, 50000);
+        let textContent = comment.text.substring(0, 400);
         textDiv.innerHTML = parseCommentText(textContent);
 
-        if (comment.text.length > 50000) {
+        if (comment.text.length > 400) {
             let moreText = document.createElement("span");
             moreText.textContent = "... Читать дальше";
             moreText.addEventListener("click", () => {
