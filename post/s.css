@@ -213,7 +213,6 @@ body {
 
 .comments.focused {
   background: var(--focused);
-  border-color: var(--selection);
 }
 .login {
   width: 100%;
