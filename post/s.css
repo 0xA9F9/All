@@ -20,7 +20,7 @@
   --bg: #202020;
   --color: white;
   --surface: rgb(8 8 8 / 50%);
-  --border: #474747;
+  --border: #303030;
   --selection: #7037d5;
   --ripple: rgb(107 107 107 / 35%);
   --code: #1f1f1f;
@@ -242,6 +242,7 @@ body {
   border-radius: 4px;
   padding: 7px;
   background: var(--comment);
+  border:1px solid var(--border);
 }
 
 .menu button,
