@@ -204,6 +204,12 @@ body {
   }
 }
 
+.date {
+    margin-left: 10px;
+    opacity: .5;
+    font-size: 11px;
+}
+
 .comments.focused {
   background: var(--focused);
   border-color: var(--selection);
