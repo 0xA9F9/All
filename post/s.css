@@ -220,7 +220,7 @@ body {
 }
 
 .comments.focused {
-  background: var(--comment);
+  background: var(--focused);
 }
 .login {
   width: 100%;
@@ -237,7 +237,7 @@ body {
 .comment {
   border-radius: 4px;
   padding: 7px;
-  background: var(--focused);
+  background: var(--comment);
 }
 
 .menu button,
