@@ -123,6 +123,10 @@ textarea {
   text-shadow: none;
 }
 
+img:selection {
+  background:transparen;
+}
+
 a {
   color: var(--link);
   text-decoration: none;
