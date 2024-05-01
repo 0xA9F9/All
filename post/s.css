@@ -13,6 +13,7 @@
     --button: whitesmoke;
     --focused: rgba(255, 255, 255, 0.8);
     --comment: rgb(245 245 245 / 55%);
+    --shadow:rgb(221 221 221 / 70%);
 
     --hljs: transparent;
     --hljs-c: #3366FF;
@@ -40,6 +41,7 @@
     --button: rgb(33 32 32);
     --focused: rgb(0 0 0 / 60%);
     --comment: var(--focused);
+    --shadow:rgb(41 41 42 / 85%);
 
     --hljs: transparent;
     --hljs-c: #abb2bf;
@@ -151,7 +153,7 @@ textarea {
     text-shadow: none;
 }
 
-img::selection {
+img:selection {
     background: transparent;
 }
 
@@ -372,7 +374,15 @@ body {
 
 .more-text {
     cursor: pointer;
+    text-align: center;
+    box-shadow: 0 -14px 8px 3px var(--shadow);
+    padding: 5px;
+    border-radius: 5px;
+    background: var(--button);
+    border: 1px solid var(--border);
 }
+
+
 .more-text:hover,
 .load-more-button:hover,
 a:hover {
