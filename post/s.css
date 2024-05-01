@@ -225,7 +225,7 @@ body {
 .comment {
   border-radius: 4px;
   padding: 7px;
-  background: var(--surface);
+  background: var(--focused);
 }
 
 .menu button,
