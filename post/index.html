@@ -21,19 +21,7 @@
 <main class="main">
 <script type="module" src="base.js"></script>
 <form id="commentForm" class="comments">
-    <div class="controls">
-        <div class="search">
-<button type="button" class="hide mdi mdi-magnify"type="button"onclick="toggleVisibility(this)"></button>
-<input type="text" id="searchInput" placeholder="Поиск" class="search-input">
-</div>
-        <button type="button" class="in mdi mdi-image"></button>
-        <div class="add-img">
-    <input type="text" id="image-url-input" placeholder="Ссылка на изображение">
-    <input type="number" id="image-width-input" placeholder="Ширина" style=" max-width: 76px;">
-    <input type="number" id="image-height-input" placeholder="Высота"style=" max-width: 76px;">
-    <input type="file" id="imageFileInput" accept="image/*">
-    <button id="put-img" class="put-img" type="button">Готово</button>
-</div>
+   
 <script>
 document.getElementById('imageInput').addEventListener('change', function() {
     const file = this.files[0];
@@ -65,9 +53,22 @@ function insertTextAtCursor(textarea, text) {
     textarea.focus();
 }
 </script>
+    <div class="post-section">
+        <textarea rows="4" name="text" id="commentInput" placeholder="Напиши что-нибудь" style="width: 100%; resize: block;overflow-wrap: break-word;" required></textarea>
+</div>
+<div class="controls">
+        <button type="button" class="in mdi mdi-image"></button>
+        <div class="add-img">
+    <input type="text" id="image-url-input" placeholder="Ссылка на изображение">
+    <input type="number" id="image-width-input" placeholder="Ширина" style=" max-width: 76px;">
+    <input type="number" id="image-height-input" placeholder="Высота"style=" max-width: 76px;">
+    <input type="file" id="imageFileInput" accept="image/*">
+    <button id="put-img" class="put-img" type="button">Готово</button>
+</div>
 
 <div class="bt-bb">
-    <button class="mdi mdi-link hide" type="button" onclick="toggleVisibility(this)" style=" place-self: flex-start; "></button>
+    <button class="hide mdi mdi-link" type="button"onclick="toggleVisibility(this)"></button>
+
     <div class="link">
 <input type="text" id="put-link" placeholder="Ссылка">
 <input type="text" id="link-name" placeholder="Название">
@@ -79,10 +80,12 @@ function insertTextAtCursor(textarea, text) {
  <button id="spoiler" class="spoiler mdi mdi-eye-off" type="button"></button>
   <button id="put-code" class="put-code mdi mdi-xml" type="button"></button>
 </div>
+<div class="search">
+<button type="button" class="hide mdi mdi-magnify"type="button"onclick="toggleVisibility(this)"></button>
+<input type="text" id="searchInput" placeholder="Поиск" class="search-input">
+</div>
+<button type="submit" class="add-comment mdi mdi-send-variant"></button>
     </div>
-    <div class="post-section">
-        <textarea rows="4" name="text" id="commentInput" placeholder="Напиши что-нибудь" style="width: 100%;overflow-wrap: break-word;" required></textarea>
-    <button type="submit" class="add-comment mdi mdi-send-variant"></button></div>
   </form>
   <div id="commentsBlock"class="commentsBlock"></div>
 </main>
