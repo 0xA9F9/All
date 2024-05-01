@@ -267,6 +267,7 @@ body {
 }
 .q {
     background: var(--button);
+    box-shadow: 0 0 0px 2px var(--border);
 }
 
 .comment {
