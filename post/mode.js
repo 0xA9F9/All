@@ -9,3 +9,17 @@ function toggleVisibility(element) {
     element.classList.add('hide');
   }
 }
+
+const comments = document.querySelector('.comments');
+
+function addFocusedClass(event) {
+    comments.classList.add('focused');
+    event.stopPropagation(); 
+}
+
+function removeFocusedClass() {
+    comments.classList.remove('focused');
+}
+
+comments.addEventListener('click', addFocusedClass);
+document.addEventListener('click', removeFocusedClass);
