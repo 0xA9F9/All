@@ -84,6 +84,7 @@ button.mdi {
 
 .file-upload {
     padding: 2px 5px;
+    cursor:pointer;
 }
 
 .image-in {
