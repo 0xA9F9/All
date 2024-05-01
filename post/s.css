@@ -1,0 +1,631 @@
+[data-mode="light"] {
+    --bg: white;
+    --color: #575757;
+    --surface: rgb(255 255 255 / 50%);
+    --border: #eaeaea;
+    --selection: #d3e6ff;
+    --ripple: rgb(197 194 194 / 35%);
+    --line: hsl(0deg 0% 75% / 15%);
+    --textarea: white;
+    --code: white;
+    --cc: #d2d2d2;
+    --link: #00aaff;
+    --button: whitesmoke;
+    --focused: rgba(255, 255, 255, 0.8);
+    --comment: rgb(245 245 245 / 55%);
+
+    --hljs: transparent;
+    --hljs-c: #3366FF;
+    --hljs-q: #808080;
+    --hljs-k: #CC0000;
+    --hljs-s: #FF6600;
+    --hljs-l: #3399FF;
+    --hl: #9933CC;
+    --hs: #339999;
+    --hq: #006699;
+    --hz: #996699;
+}
+
+[data-mode="dark"] {
+    --line: hsl(0deg 0% 54.24% / 15%);
+    --bg: #202020;
+    --color: white;
+    --surface: rgb(8 8 8 / 50%);
+    --border: #303030;
+    --selection: #7037d5;
+    --ripple: rgb(107 107 107 / 35%);
+    --code: #1f1f1f;
+    --cc: #484848;
+    --link: #f1e74d;
+    --button: rgb(33 32 32);
+    --focused: rgb(0 0 0 / 60%);
+    --comment: var(--focused);
+
+    --hljs: transparent;
+    --hljs-c: #abb2bf;
+    --hljs-q: #5c6370;
+    --hljs-k: #bba8eb;
+    --hljs-s: #e06c75;
+    --hljs-l: #56b6c2;
+    --hl: #98c379;
+    --hs: #d19a66;
+    --hq: #61aeee;
+    --hz: #e6c07b;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: 0;
+    appearance: none;
+}
+
+:focus {
+    outline: none;
+}
+
+html,
+input,
+select,
+textarea,
+button {
+    color: var(--color);
+}
+
+.put-img,
+.ok-link,
+button:not(.delete):hover {
+    background: var(--button);
+}
+.delete:hover {
+    color: tomato;
+}
+
+button {
+    border-radius: 5px;
+    display: flex;
+    background: transparent;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+.r-r {
+    overflow: hidden;
+    position: relative;
+}
+.controls button.mdi {
+    font-size: 18px;
+}
+
+
+
+.load-more-button {
+    padding: 5px;
+    border: 1px solid var(--border);
+    text-align: center;
+    background: var(--button);
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.active,
+.show {
+    background: var(--button);
+}
+
+.main .file-upload {
+    height: 29px;
+    width: 29px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.file-upload:hover {
+    box-shadow: 0 0 0px 2px #7d90ad;
+}
+
+.image-in {
+    display: none;
+}
+
+input,
+.file-upload {
+    background: var(--surface);
+    padding: 0.5em;
+    margin: 0;
+    box-shadow: 0 0 0px 2px var(--border);
+    border-radius: 3px;
+}
+
+textarea {
+    background: transparent;
+}
+
+::-moz-selection {
+    background: var(--selection);
+    text-shadow: none;
+}
+::selection {
+    background: var(--selection);
+    text-shadow: none;
+}
+
+img:selection {
+    background: transparent;
+}
+
+a {
+    color: var(--link);
+    text-decoration: none;
+}
+
+hr {
+    border-bottom: 1px solid var(--line);
+}
+
+pre {
+    white-space: pre-wrap;
+}
+
+img {
+    border: 0;
+    -ms-interpolation-mode: bicubic;
+    object-fit: cover;
+    vertical-align: middle;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+}
+
+img[alt="pirate"] {
+    border-radius: 50%;
+}
+html {
+    font: 12px monospace;
+    font-size: 100%;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+body:before {
+    --size: 60px;
+    content: "";
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    background: linear-gradient(
+                90deg,
+                var(--line) 1px,
+                transparent 1px var(--size)
+            )
+            50% 50% / var(--size) var(--size),
+        linear-gradient(var(--line) 1px, transparent 1px var(--size)) 50% 50% /
+            var(--size) var(--size);
+    -webkit-mask: linear-gradient(-15deg, transparent 30%, white);
+    mask: linear-gradient(-15deg, transparent 30%, white);
+    top: 0;
+    z-index: -1;
+    transform: translate3d(0, 0, -100vmin);
+}
+
+body {
+    background: var(--bg);
+    line-height: 1.25;
+    display: flex;
+    justify-content: center;
+}
+
+.list {
+    margin-left: 20px;
+}
+
+.main {
+    max-width: 800px;
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 10px;
+    margin: 1em auto 1em auto;
+
+}
+
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    background-color: var(--ripple);
+    animation: ripple-effect 0.5s linear;
+}
+
+@keyframes ripple-effect {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+.date {
+    margin-left: 10px;
+    opacity: 0.5;
+    font-size: 11px;
+}
+
+.comments.focused {
+    background: var(--focused);
+}
+.login {
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    place-content: center;
+}
+.q {
+    background: var(--button);
+}
+
+.comment {
+    border-radius: 4px;
+    padding: 7px;
+    background: var(--comment);
+    border: 1px solid var(--border);
+}
+
+.menu button,
+.toggle button,  .search-it, .load_more {
+    background: var(--button);
+    border: 1px solid var(--border);
+}
+
+.menu,
+.toggle {
+    display: flex;
+    gap: 5px;
+    place-content: end;
+}
+
+.comment > img {
+    width: 40px;
+    float: left;
+}
+.cmt {
+    overflow: hidden;
+    padding: 1px;
+}
+
+.comment:hover .delete {
+    opacity: 1;
+}
+.delete:active {
+    box-shadow: none;
+    color: red;
+}
+
+.delete {
+    opacity: 0;
+    border: 0;
+    margin-top: -12px;
+    margin-bottom: 5px;
+    margin-left: auto;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.comments {
+    background: var(--surface);
+    padding: 1em;
+    border-radius: 6px;
+    border: 2px solid var(--border);
+}
+
+.controls,
+.controls > *,
+.link {
+    flex-wrap: wrap;
+}
+
+.controls,
+.bt-bb {
+    display: flex;
+    gap: 10px;
+    place-items: flex-start;
+}
+
+.controls {
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid var(--line);
+    position: relative;
+}
+
+.controls > .show-img.active ~ *:not(.add-comment, .add-img),
+.controls .hide > .active ~ *:not(.add-comment),
+.comments .controls .b-preview.active ~ *:not(.add-comment),
+.add-img {
+    display: none;
+}
+
+.controls .show-img.active ~ .add-img {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.main .controls .add-comment, .main .add-comment {
+    margin-left: auto;
+    font-size: 20px;
+}
+
+
+
+.commentsBlock {
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+}
+
+.more-text {
+    cursor: pointer;
+}
+.more-text:hover,
+.load-more-button:hover,
+a:hover {
+    opacity: 0.7;
+}
+
+.right {
+    text-align: right;
+}
+.center {
+    text-align: center;
+}
+
+.content {
+    display: none;
+}
+
+.spoil .jez ~ .content {
+    display: block;
+}
+
+.content.active {
+    display: block;
+}
+
+.spoil {
+    display: flex;
+    flex-direction: column;
+}
+.title {
+    cursor: pointer;
+    border: 1px solid var(--cc);
+    padding: 5px;
+}
+
+.title:after {
+    content: "+";
+    float: right;
+    padding-right: 10px;
+}
+.title.jez:after {
+    content: "-";
+}
+.content {
+    border: 1px solid var(--cc);
+    padding: 5px;
+    border-top: 0;
+}
+
+.commentsBlock .comment .cmt pre code {
+    display: block;
+    padding: 5px;
+    background: var(--code);
+    border: 1px solid var(--cc);
+        clear: right;
+}
+
+.bt-bb .hide ~ .link {
+    display: none;
+}
+
+.bt-bb .show ~ *:not(.link) {
+    display: none;
+}
+
+.lang {
+    float: right;
+    border: 1px solid var(--cc);
+    background: var(--code);
+    padding: 0 5px;
+    margin-top: -1px;
+    border-bottom: 0;
+}
+
+.search .search-input {
+    display: none;
+}
+.search .show ~ .search-input {
+    display: initial;
+}
+.search,
+.link {
+    display: flex;
+    gap: 10px;
+}
+.ok-link {
+    align-self: center;
+}
+
+.search-it {
+    cursor: pointer;
+    border: 0;
+    padding: 0.5em;
+    border-radius: 0 5px 5px 0;
+    display:initial;
+}
+
+.new_block .srch {
+    border-radius: 5px 0 0 5px;
+    border-right:0;
+}
+.search-it, .srch {box-shadow:none; border:2px solid var(--border);
+
+}
+
+.new_block .popular-img, .new_block .results {
+  display: grid;
+  grid-template-columns: repeat(7, 50px);
+  justify-content: center;
+  padding: 5px;
+  gap: 5px;
+}
+.new_block {
+    position: absolute;
+    bottom: 56px;
+    overflow-y: auto;
+    border: 2px solid var(--border);
+    padding: 5px;
+    background: var(--bg);
+    max-width: 400px;
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    right: 0;
+    z-index: 3;
+}
+@media (max-width:487px) {
+  .new_block {
+    bottom: 101px;
+  }
+  
+.main .controls .add-comment { display:none }
+}
+
+.main .mobile.add-comment {
+    margin-top: 10px;
+}
+
+@media(min-width:487px) {
+  .main .mobile.add-comment { display:none }
+  .mob { display:none }
+}
+
+.new_block > div img {
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+}
+.new_block > div img:hover {
+  opacity: 0.5;
+}
+
+
+.search-it {
+  cursor: pointer;
+}
+
+
+
+
+.new_block .load_more {
+  padding: 5px;
+  border-radius: 5px;
+  float: right;
+ text-align: center;
+    display: none;
+    float: right;
+    margin-top: 10px;
+}
+.new_block > div > img {
+  border-radius: 4px;
+}
+
+
+.new_block button:active {
+    box-shadow: inset 0 0 4px 2px var(--border);
+}
+
+
+
+
+/* code  */
+
+pre code.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 1em;
+}
+code.hljs {
+  padding: 3px 5px;
+}
+.hljs {
+  color: var(--hljs-c);
+  background: var(--hljs);
+}
+.hljs-comment,
+.hljs-quote {
+  color: var(--hljs-q);
+  font-style: italic;
+}
+.hljs-doctag,
+.hljs-formula,
+.hljs-keyword {
+  color: var(--hljs-k);
+}
+.hljs-deletion,
+.hljs-name,
+.hljs-section,
+.hljs-selector-tag,
+.hljs-subst {
+  color: var(--hljs-s);
+}
+.hljs-literal {
+  color: var(--hljs-l);
+}
+.hljs-addition,
+.hljs-attribute,
+.hljs-meta .hljs-string,
+.hljs-regexp,
+.hljs-string {
+  color: var(--hl);
+}
+.hljs-attr,
+.hljs-number,
+.hljs-selector-attr,
+.hljs-selector-class,
+.hljs-selector-pseudo,
+.hljs-template-variable,
+.hljs-type,
+.hljs-variable {
+  color: var(--hs);
+}
+.hljs-bullet,
+.hljs-link,
+.hljs-meta,
+.hljs-selector-id,
+.hljs-symbol,
+.hljs-title {
+  color: var(--hq);
+}
+.hljs-built_in,
+.hljs-class .hljs-title,
+.hljs-title.class_ {
+  color: var(--hz);
+}
+.hljs-emphasis {
+  font-style: italic;
+}
+.hljs-attribute, .hljs-doctag, .hljs-keyword, .hljs-meta .hljs-keyword, .hljs-name, .hljs-selector-tag {
+  font-weight: initial ; 
+}
+.hljs-link {
+  text-decoration: underline;
+}
+

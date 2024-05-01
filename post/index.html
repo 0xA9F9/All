@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="страница для постов!">
+    <meta name="keywords" content="post, page,">
+    <meta name="author" content="Pirate">
+    <link rel="icon" type="image/x-icon" href="/favicon.svg">
+  <title>#</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/default.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/post/s.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/7.4.47/css/materialdesignicons.min.css" integrity="sha512-/k658G6UsCvbkGRB3vPXpsPHgWeduJwiWGPCGS14IQw3xpr63AEMdA8nMYG2gmYkXitQxDTn6iiK/2fD4T87qA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
+
+</head>
+<style>
+    .titled {
+    position: relative;
+}
+
+.titled::after {
+    content: attr(title); 
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(
+        --button
+    );
+    white-space: pre;
+    opacity: 0; 
+    padding: 3px 6px;
+    border-radius: 3px;
+    font-size: 12px;
+}
+
+.titled:hover::after {
+    opacity: 1; 
+}
+</style>
+  <body id="jsl">
+<div style="padding: .555em;width: 100%;">
+<div class="menu" style="margin-bottom:5px"><button id="mode" class="mode mdi mdi-brightness-6 r-r"></button>
+    <button id="logout" class="mdi mdi-logout r-r">
+</button>
+</div>
+<main class="main">
+<script type="module" src="base.js"></script>
+<form id="commentForm" class="comments">
+    <div class="controls">
+  <div class="search">
+<button title="Поиск" class="hide mdi mdi-magnify titled"type="button"onclick="toggleVisibility(this)"></button>
+<input type="text" id="searchInput" placeholder="Поиск" class="search-input">
+</div>
+
+        <button title="Предпосмотр" type="button" id="b-preview" class="b-preview in mdi mdi-eye titled"></button>
+        <button title="Изображение" type="button" class="mdi mdi-image in show-img titled"></button>
+        <div class="add-img">
+    <input type="text" id="image-url-input" placeholder="Ссылка на изображение">
+    <input type="number" id="image-width-input" placeholder="Ширина" style=" max-width: 76px;">
+    <input type="number" id="image-height-input" placeholder="Высота"style=" max-width: 76px;">
+    <input type="file" id="imageFileInput" class="image-in" accept="image/*">
+    <label for="imageFileInput" class="file-upload mdi mdi-file-image-plus"></label>
+    <button id="put-img" class="put-img" type="button">Готово</button>
+</div>
+
+<div class="bt-bb">
+    <button title="Ссылка" class="hide mdi mdi-link titled" type="button"onclick="toggleVisibility(this)"></button>
+
+    <div class="link">
+<input type="text" id="put-link" placeholder="Ссылка">
+<input type="text" id="link-name" placeholder="Название">
+<button id="put-link" class="ok-link" type="button"> Готово </button>
+</div>
+    <button  title="По центру" id="put-center" class="put-center mdi mdi-format-align-center titled" type="button"></button>
+    <button title="Справа" id="put-right" class="put-right mdi mdi-format-align-right titled" type="button"></button>
+ <button  title="Список" id="put-list" class="put-list mdi mdi-format-list-bulleted titled" type="button"></button>
+ <button title="Спойлер" id="spoiler" class="spoiler mdi mdi-message-alert titled" type="button"></button>
+  <button title="Код" id="put-code" class="put-code mdi mdi-xml titled" type="button"></button>
+</div>
+<button type="submit" class="add-comment mdi mdi-send-variant r-r"></button>
+    </div>
+    <div class="post-section">
+        <textarea rows="3" name="text" id="commentInput" class="this-place" placeholder="Напиши что-нибудь" style="width: 100%; resize: block;overflow-wrap: break-word;" required></textarea>
+  <div class="preview" id="preview"></div>
+</div>
+<span class="mob"><hr style="
+    padding: 3px 0;
+"></span>
+
+
+  <button type="submit" class="add-comment mdi mdi-send-variant r-r mobile"></button>
+
+  </form>
+  <div id="commentsBlock"class="commentsBlock"></div>
+</main>
+<form id="login" class="login">
+    <input type="text"placeholder="Ты кто?">
+    <button class="q r-r"> Войти </button>
+</form>
+</div>
+<script src="/post/ripple.js"></script>
+<script src="/post/mode.js"></script>
+<script src="/post/login.js"></script>
+<script src="/post/rest.js"></script>
+<script src="/post/gifs.js"></script>
+</body>
+</html>
