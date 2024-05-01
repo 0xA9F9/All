@@ -82,7 +82,11 @@ button.mdi {
   box-shadow: 0px 0px 0 2px var(--selection);
 }
 
-input {
+.file-upload {
+    padding: 2px 5px;
+}
+
+input, .file-upload {
   background: var(--surface);
   padding: 0.5em;
   margin: 0;
