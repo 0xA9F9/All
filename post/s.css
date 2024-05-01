@@ -86,6 +86,10 @@ button.mdi {
     padding: 2px 5px;
 }
 
+.image-in {
+  display: none;
+}
+
 input, .file-upload {
   background: var(--surface);
   padding: 0.5em;
