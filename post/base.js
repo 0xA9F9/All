@@ -42,7 +42,7 @@ function displayComment(comment) {
     div.appendChild(avatar);
 
     let nickname = document.createElement("span");
-    nickname.textContent = "Pirate";
+    nickname.textContent = "0xA9F9";
     nickname.classList.add("nickname");
     div.appendChild(nickname);
 
