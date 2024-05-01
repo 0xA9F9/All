@@ -50,10 +50,11 @@ button {
 }
 
 
-.put-img, .ok-link, button:hover {
+.put-img, .ok-link, button:not(.delete):hover {
   background: var(--button);
 }
-
+.delete:hover { color:tomato; }
+.delete:focus { border:none; } 
 
 button{
   border-radius: 5px;
