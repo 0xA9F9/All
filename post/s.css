@@ -103,9 +103,8 @@ button {
 
 .load-more-button {
     padding: 5px;
-    border: 1px solid var(--border);
     text-align: center;
-    background: var(--button);
+    background: var(--comment);
     border-radius: 3px;
     cursor: pointer;
 }
