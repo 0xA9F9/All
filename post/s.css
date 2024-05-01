@@ -151,7 +151,7 @@ textarea {
     text-shadow: none;
 }
 
-img:selection {
+img::selection {
     background: transparent;
 }
 
