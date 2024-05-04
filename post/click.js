@@ -1,0 +1,3 @@
+document.addEventListener("DOMContentLoaded",function(){var e=`
+        <div id="click-menu" class="click-menu" style="position: fixed; padding: 10px; border-radius: 5px; display: none;"> не трогай код!</div>
+    `;document.body.insertAdjacentHTML("beforeend",e),document.addEventListener("click",function(e){var t=document.getElementById("click-menu");2!==e.button&&"block"===window.getComputedStyle(t).display&&(t.style.display="none")}),document.documentElement.addEventListener("contextmenu",function(e){e.preventDefault();var t=document.getElementById("click-menu");t.style.display="block",t.style.left=e.clientX+"px",t.style.top=e.clientY+"px"})});
