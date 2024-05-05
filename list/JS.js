@@ -19,16 +19,16 @@ let currentLanguage="ru",currentStatus="",animeListData=null,currentSearchResult
     var enButton = document.getElementById("enButton");
     var footerText = document.getElementById("footerText");
 
-    if (lang === 'en') {
-       clickMenu.textContent = "don't touch the code!";
-        footerText.textContent = "© 2024 All rights reserved.";
-        enButton.classList.add("active");
-        ruButton.classList.remove("active");
-    } else if (lang === 'ru') {
+    if (lang === 'ru') {
        clickMenu.textContent = "не трогай код!";
         footerText.textContent = "© 2024 Все права защищены.";
         ruButton.classList.add("active");
         enButton.classList.remove("active");
+    } else if (lang === 'en') {
+       clickMenu.textContent = "don't touch the code!";
+        footerText.textContent = "© 2024 All rights reserved.";
+        enButton.classList.add("active");
+        ruButton.classList.remove("active");
     }
 
     var searchInput = document.getElementById("searchInput");
@@ -69,7 +69,7 @@ document.querySelectorAll(".status-btn").forEach(e => {
     e.target == t && closeModal()
 }, window.onload = function() {
     let e = navigator.language || navigator.userLanguage;
-    e.startsWith("en") ? changeLanguage("en") : changeLanguage("ru")
+    e.startsWith("ru") ? changeLanguage("ru") : changeLanguage("en")
 }, parseJSONAndDisplay(currentLanguage), document.addEventListener("DOMContentLoaded", function() {
     document.querySelector(".in").addEventListener("click", function() {
         this.classList.toggle("active")
