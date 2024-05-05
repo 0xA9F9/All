@@ -69,7 +69,7 @@ document.querySelectorAll(".status-btn").forEach(e => {
     e.target == t && closeModal()
 }, window.onload = function() {
     let e = navigator.language || navigator.userLanguage;
-    e.startsWith("ru") ? changeLanguage("ru") : changeLanguage("en")
+    e.startsWith("en") ? changeLanguage("en") : changeLanguage("ru")
 }, parseJSONAndDisplay(currentLanguage), document.addEventListener("DOMContentLoaded", function() {
     document.querySelector(".in").addEventListener("click", function() {
         this.classList.toggle("active")
