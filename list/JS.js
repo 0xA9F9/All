@@ -21,16 +21,16 @@ function changeLanguage(lang) {
     var enButton = document.getElementById("enButton");
     var footerText = document.getElementById("footerText");
 
-    if (lang === 'en') {
-        clickMenu.textContent = "don't touch the code!";
-        footerText.textContent = "© 2024 All rights reserved.";
-        enButton.classList.add("active");
-        ruButton.classList.remove("active");
-    } else if (lang === 'ru') {
+    if (lang === 'ru') {
         clickMenu.textContent = "не трогай код!";
         footerText.textContent = "© 2024 Все права защищены.";
         ruButton.classList.add("active");
         enButton.classList.remove("active");
+    } else if (lang === 'en') {
+      clickMenu.textContent = "don't touch the code!";
+        footerText.textContent = "© 2024 All rights reserved.";
+        enButton.classList.add("active");
+        ruButton.classList.remove("active");
     }
 
     var searchInput = document.getElementById("searchInput");
