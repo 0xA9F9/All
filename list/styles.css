@@ -419,3 +419,13 @@ div .filter.active ~ .fi {
   font-size: 20px;
   place-self: self-end;
 }
+
+#scrollBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    border-radius: 3px;
+    transition: opacity 0.3s ease;
+    font-size: 15px;
+    opacity: .6;
+}
