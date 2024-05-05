@@ -421,11 +421,17 @@ div .filter.active ~ .fi {
 }
 
 #scrollBtn {
+    display: none;
     position: fixed;
     bottom: 20px;
     right: 20px;
     border-radius: 3px;
     transition: opacity 0.3s ease;
-    font-size: 15px;
-    opacity: .6;
-}
+    opacity:.6;
+  }
+
+  #scrollBtn:hover {
+    opacity: 1;
+  }
+
+
