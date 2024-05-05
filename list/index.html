@@ -14,21 +14,20 @@
 </head>
 <body>
 <!----- MAIN -------> 
-    <div class="main">
+ <div class="main">
     <div>
-      <div style="float: left;">
         <button id="mode" class="mode mdi mdi-brightness-6"></button>
-<button class="filter in mdi mdi-filter-variant"></button>
+        <button class="filter in mdi mdi-filter-variant"></button>
 <button class="status-btn watching fi mdi mdi-eye" data-status="watching"></button>
 <button class="status-btn hold_on fi mdi mdi-pause" data-status="on_hold"></button>
 <button class="status-btn planned fi mdi mdi-calendar-check" data-status="planned"></button>
 <button class="status-btn dropped fi mdi mdi-close" data-status="dropped"></button>
 <button class="status-btn watched fi mdi mdi-check" data-status="completed"></button>
-<input type="text" id="searchInput" class="search" oninput="searchAnime(this.value)" placeholder="Поиск..."> </div> 
+        <input type="text" id="searchInput" class="search" oninput="searchAnime(this.value)" >
 <div style="
     float: right;
     margin-top: 5px;
-">  <span onclick="changeLanguage('ru')" id="ruButton" class="lang ru"></span>
+">  <span onclick="changeLanguage('ru')" id="ruButton" class="lang ru active"></span>
     <span onclick="changeLanguage('en')" id="enButton" class="lang grb"></span></div>
     </div>
     <div id="my-anime-list" class="my-anime-list"></div>
