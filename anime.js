@@ -145,18 +145,6 @@ animeItem.appendChild(playItDiv);
         history.pushState({ page, search: searchTerm }, '', url);
     }
 
-    //fetchAnime(currentPage)
-        //.then(data => {
-           // if (data) {
-                //const totalPages = Math.ceil(data.meta.total_count / perPage);
-              //  displayAnime(data);
-                //updatePagination(searchTerm !== '', totalPages);
-            //} else {
-          //      console.error('Ошибка при получении данных: некорректный формат ответа.');
-          //  }
-       // })
-        //.catch(error => console.error('Ошибка при получении данных:', error));
-
     function searchAnime(searchTerm) {
         fetchAnime(1)
             .then(data => displayAnime(data))
