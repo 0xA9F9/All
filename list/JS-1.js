@@ -37,27 +37,29 @@ document.addEventListener('click', function(event) {
 
 
 document.addEventListener("DOMContentLoaded", function () {
-    var goTop = document.createElement("button");
-    goTop.classList.add("mdi", "mdi-arrow-up-bold-circle");
-    goTop.id = "goTop";
-    goTop.style.display = "none";
-    goTop.style.position = "fixed";
-    goTop.style.bottom = "20px";
-    goTop.style.right = "20px"; 
-    goTop.style.fontSize = "18px";
-    goTop.addEventListener("click", scrollToTop);
-    document.body.appendChild(goTop);
-
-    window.onscroll = function() {
-        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-            goTop.style.display = "block";
-        } else {
-            goTop.style.display = "none";
-        }
+        var scrollBtn = document.createElement("button");
+    scrollBtn.innerHTML = '<i class="mdi mdi-arrow-up"></i>';
+    scrollBtn.id = "scrollBtn";
+        scrollBtn.onclick = function () {
+        scrollToTop();
     };
+    
+    document.body.appendChild(scrollBtn);
+    window.onscroll = function () {
+        scrollFunction();
+    };
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            scrollBtn.style.display = "block";
+        } else {
+            scrollBtn.style.display = "none";
+        }
+    }
+    function scrollToTop() {
+        var currentPosition = document.documentElement.scrollTop || document.body.scrollTop;
+        if (currentPosition > 0) {
+            window.requestAnimationFrame(scrollToTop);
+            window.scrollTo(0, currentPosition - currentPosition / 8);
+        }
+    }
 });
-
-function scrollToTop() {
-    document.body.scrollTop = 0;
-    document.documentElement.scrollTop = 0; 
-}
