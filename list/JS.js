@@ -11,7 +11,9 @@ let currentLanguage="ru",currentStatus="",animeListData=null,currentSearchResult
                 <div class="modal-content">
                     <div class="header"> <h4 class="mdi mdi-monitor-eye"> ${t}</h4><span class="close" onclick="closeModal()">&times;</span></div>
                     <br> <iframe src="${i}" frameborder="0" allowfullscreen style="width: var(--max); height: var(--max); --max:100%;"></iframe>
-                </div>`,document.body.appendChild(r),r.style.display="flex"})}function changeLanguage(lang) {
+                </div>`,document.body.appendChild(r),r.style.display="flex"})}
+
+function changeLanguage(lang) {
     currentLanguage = lang;
 
     var clickMenu = document.getElementById("click-menu");
@@ -19,16 +21,16 @@ let currentLanguage="ru",currentStatus="",animeListData=null,currentSearchResult
     var enButton = document.getElementById("enButton");
     var footerText = document.getElementById("footerText");
 
-    if (lang === 'ru') {
-       clickMenu.textContent = "не трогай код!";
-        footerText.textContent = "© 2024 Все права защищены.";
-        ruButton.classList.add("active");
-        enButton.classList.remove("active");
-    } else if (lang === 'en') {
-       clickMenu.textContent = "don't touch the code!";
+    if (lang === 'en') {
+        clickMenu.textContent = "don't touch the code!";
         footerText.textContent = "© 2024 All rights reserved.";
         enButton.classList.add("active");
         ruButton.classList.remove("active");
+    } else if (lang === 'ru') {
+        clickMenu.textContent = "не трогай код!";
+        footerText.textContent = "© 2024 Все права защищены.";
+        ruButton.classList.add("active");
+        enButton.classList.remove("active");
     }
 
     var searchInput = document.getElementById("searchInput");
@@ -36,11 +38,11 @@ let currentLanguage="ru",currentStatus="",animeListData=null,currentSearchResult
         searchInput.setAttribute("placeholder", lang === 'en' ? "Search..." : "Поиск...");
     }
 
-    // Дополнительные действия, если необходимо
-    // Например, обновление отображения списка аниме
+    // Обновление отображения списка аниме
     var s = currentSearchResults.length > 0 ? currentSearchResults : animeListData;
     displayAnimeList(s, lang);
 }
+
 
 
 function closeModal() {
