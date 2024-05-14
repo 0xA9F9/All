@@ -254,7 +254,7 @@ function showKodikPlayer(shikimoriId) {
             modal.classList.add('modal');
             modal.innerHTML = `
                 <div class="modal-content">
-                    <span class="close" onclick="closeModal()" style="display: flex; font-size: 20px; align-self: center; justify-content: center;">&times;</span>
+                    <span class="close" onclick="closeModal()" style="display: flex; font-size: 21px; align-self: center; text-indent: 0; ">&times;</span>
                     <iframe src="${kodikLink}" frameborder="0" allowfullscreen></iframe>
                 </div>
             `;
