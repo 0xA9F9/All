@@ -249,12 +249,12 @@ function showKodikPlayer(shikimoriId) {
                 throw new Error('Для данного аниме нет доступного плеера на Kodik.');
             }
 
-            const kodikLink = `https:${kodikAnime.link}`;
+            const kodikLink = kodikAnime.link.startsWith('http') ? kodikAnime.link : `https:${kodikAnime.link}`;
             const modal = document.createElement('div');
             modal.classList.add('modal');
             modal.innerHTML = `
                 <div class="modal-content">
-                    <span class="close" onclick="closeModal()"style=" font-size: 20px; >&times;</span>
+                    <span class="close" onclick="closeModal()" style="font-size: 20px;">&times;</span>
                     <iframe src="${kodikLink}" frameborder="0" allowfullscreen></iframe>
                 </div>
             `;
@@ -267,7 +267,8 @@ function showKodikPlayer(shikimoriId) {
 function closeModal() {
     const modal = document.querySelector('.modal');
     if (modal) {
-        modal.parentNode.removeChild(modal);
+        modal.style.display = 'none';
+        document.body.removeChild(modal);
     }
 }
 
