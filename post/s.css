@@ -208,8 +208,8 @@ html {
 body:before {
     --size: 60px;
     content: "";
-    height: 100vh;
-    width: 100vw;
+    height: 100%;
+    width: 100%;
     position: fixed;
     background: linear-gradient(
                 90deg,
